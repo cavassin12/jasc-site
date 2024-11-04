@@ -38,21 +38,7 @@
                 </div>
                 <div class="bigslam-mobile-menu-right">
                     <div class="bigslam-main-menu-search" id="bigslam-mobile-top-search"><i class="fa fa-search"></i></div>
-                    <div class="bigslam-top-search-wrap">
-                        <div class="bigslam-top-search-close"></div>
-
-                        <div class="bigslam-top-search-row">
-                            <div class="bigslam-top-search-cell">
-                                <form role="search" method="get" class="search-form" action="#">
-                                    <input type="text" class="search-field bigslam-title-font" placeholder="Search..." value="" name="s">
-                                    <div class="bigslam-top-search-submit"><i class="fa fa-search"></i></div>
-                                    <input type="submit" class="search-submit" value="Search">
-                                    <div class="bigslam-top-search-close"><i class="icon_close"></i></div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
+                    
 
                     <div class="bigslam-mobile-menu"><a class="bigslam-mm-menu-button bigslam-mobile-menu-button bigslam-mobile-button-hamburger-with-border" href="#bigslam-mobile-menu"><i class="fa fa-bars"></i></a>
                         <div class="bigslam-mm-menu-wrap bigslam-navigation-font" id="bigslam-mobile-menu" data-slide="right">
@@ -242,11 +228,11 @@
             <div class="bigslam-header-boxed-wrap">
                 <div class="bigslam-top-bar">
                     <div class="bigslam-top-bar-background"></div>
-                    <div class="bigslam-top-bar-container clearfix bigslam-container ">
+<!--                    <div class="bigslam-top-bar-container clearfix bigslam-container ">
                         <div class="bigslam-top-bar-right bigslam-item-pdlr">
                             <div class="bigslam-top-bar-right-social"><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="facebook"><i class="fa fa-facebook"></i></a><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="flickr"><i class="fa fa-flickr"></i></a><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="pinterest"><i class="fa fa-pinterest-p"></i></a><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="twitter"><i class="fa fa-twitter"></i></a><a href="#" target="_blank" class="bigslam-top-bar-social-icon" title="vimeo"><i class="fa fa-vimeo"></i></a></div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <header class="bigslam-header-wrap bigslam-header-style-boxed  bigslam-style-splitted-menu bigslam-sticky-navigation bigslam-style-slide">
                     <div class="bigslam-header-container clearfix  bigslam-container">
@@ -443,7 +429,7 @@
                                         </ul>
                                         <div class="bigslam-navigation-slide-bar bigslam-style-2" id="bigslam-navigation-slide-bar"></div>
                                     </div>
-                                    <div class="bigslam-main-menu-right-wrap clearfix  bigslam-item-mglr bigslam-navigation-top bigslam-navigation-right">
+<!--                                    <div class="bigslam-main-menu-right-wrap clearfix  bigslam-item-mglr bigslam-navigation-top bigslam-navigation-right">
                                         <div class="bigslam-main-menu-search" id="bigslam-top-search"><i class="fa fa-search"></i></div>
                                         <div class="bigslam-top-search-wrap">
                                             <div class="bigslam-top-search-close"></div>
@@ -461,7 +447,7 @@
 
                                         </div>
 
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <!-- bigslam-navigation -->
 
@@ -1266,51 +1252,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gdlr-core-pbf-wrapper " style="padding: 80px 0px 60px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #f7f7f7 ;">
-                            <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" style="background-image: url(upload/bg-letter-2.jpg) ;background-repeat: no-repeat ;background-position: center ;" data-parallax-speed="0.05"></div>
-                        </div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-36 gdlr-core-column-first" id="gdlr-core-column-293">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 0px 0px 0px 50px;">
-                                        <div class="gdlr-core-pbf-background-wrap"></div>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                                    <div class="gdlr-core-title-item-title-wrap ">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-weight: 500 ;letter-spacing: 0px ;line-height: 1.1 ;text-transform: none ;color: #18181f ;"><span style="color: #e31b23;">Subscribe</span> to the our newsletter for soccer TV listings & news.<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h3></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-20" id="gdlr-core-column-45193">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 30px 0px 0px 0px;">
-                                        <div class="gdlr-core-pbf-background-wrap"></div>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-newsletter-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-style-curve2" style="padding-bottom: 10px ;">
-
-
-                                                    <div class="newsletter newsletter-subscription">
-                                                        <form class="gdlr-core-newsletter-form clearfix" method="post" action="#" onsubmit="return newsletter_check(this)">
-                                                            <div class="gdlr-core-newsletter-email">
-                                                                <input class="newsletter-email gdlr-core-skin-e-background gdlr-core-skin-e-content" placeholder="Your Email Address" type="email" name="ne" size="30" required="">
-                                                            </div>
-                                                            <div class="gdlr-core-newsletter-submit">
-                                                                <input class="newsletter-submit" type="submit" value="Subscribe">
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="gdlr-core-pbf-wrapper " style="padding: 100px 0px 80px 0px;" id="gdlr-core-wrapper-2">
                         <div class="gdlr-core-pbf-background-wrap">
                             <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" style="background-image: url(upload/bg.jpg) ;background-size: cover ;background-position: center ;" data-parallax-speed="0.2"></div>
