@@ -57,7 +57,8 @@ create table public.jogos(
 	cidade_vencedor_codigo int references public.cidades(codigo),
 	pontos_a numeric(6,2) not null default 0.00,
 	pontos_b numeric(6,2) not null default 0.00,
-	link_transmissao character varying
+	link_transmissao character varying,
+	destaque bit not null default '0'
 );
 
 
