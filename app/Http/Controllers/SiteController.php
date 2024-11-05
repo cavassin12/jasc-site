@@ -22,7 +22,8 @@ class SiteController extends Controller {
   
     public function home():View {
         $this->sm = new SiteModel();
-        return view('site/home');
+        
+        return view('site/home', ["banners"=> $this->sm->getBanners()]);
     }
     
 }

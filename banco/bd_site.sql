@@ -13,11 +13,12 @@ create table public.modalidades(
 	icone character varying
 );
 
+drop table public.banners;
 create table public.banners(
 	codigo serial not null primary key,
 	descricao character varying(50),
 	caminho_banner character varying,
-	status bit not null default '1'
+	status bit not null default '0'
 );
 
 create table public.noticias(
