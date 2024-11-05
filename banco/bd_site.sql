@@ -44,10 +44,13 @@ create table public.cidades(
 	descricao character varying
 );
 
-
+drop table public.jogos;
 create table public.jogos(
 	codigo bigserial not null primary key,
 	modalidade_codigo int not null references public.modalidades(codigo),
+	data date not null,
+	hora time,
+	local character varying,
 	cidade_a_codigo int not null references public.cidades(codigo),
 	cidade_b_codigo int not null references public.cidades(codigo),
 	cidade_vencedor_codigo int references public.cidades(codigo),
