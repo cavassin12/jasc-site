@@ -5,6 +5,7 @@ create table public.usuarios(
 	senha character varying not null,
 	status bit not null default '1'
 );
+insert into public.usuarios(nome, email, senha)values('sistema', 'sistema', 'ma==');
 
 
 create table public.modalidades(
@@ -58,7 +59,8 @@ create table public.jogos(
 	pontos_a numeric(6,2) not null default 0.00,
 	pontos_b numeric(6,2) not null default 0.00,
 	link_transmissao character varying,
-	destaque bit not null default '0'
+	destaque bit not null default '0',
+	status bit not null default '0'
 );
 
 

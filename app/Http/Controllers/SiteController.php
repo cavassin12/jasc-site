@@ -23,7 +23,16 @@ class SiteController extends Controller {
     public function home():View {
         $this->sm = new SiteModel();
         
+        return view('site/home', ["banners"=> $this->sm->getBanners(), "noticias"=>$this->sm->getUltimasNoticias(), "jogodest"=> $this->sm->getjogoDestaque()]);
+    }
+    public function noticias():View {
+        $this->sm = new SiteModel();
         return view('site/home', ["banners"=> $this->sm->getBanners(), "noticias"=>$this->sm->getUltimasNoticias()]);
+    }
+    public function noticiasbyid(Request $request, String $chave):View {
+        $this->sm = new SiteModel();
+        $id = intval(base64_decode($chave));
+        return view('site/noticiabyid', ["noticia"=>$this->sm->getNoticiaById($id)]);
     }
     
 }

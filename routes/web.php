@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'home');
-    Route::put('/site', 'home');
-    Route::put('/noticias', 'noticias');
-    Route::put('/noticias/{chave}', 'noticiasbyid');
-    Route::put('/classificacao', 'classificacao');
-    Route::put('/classificacao/{chave}', 'classificacaobyid');
+    Route::get('/site', 'home');
+    Route::get('/noticias', 'noticias');
+    Route::get('/noticias/{chave}', 'noticiasbyid');
+    Route::get('/classificacao', 'classificacao');
+    Route::get('/classificacao/{chave}', 'classificacaobyid');
 
 //    Route::put('/cadastro/salvar', 'salvarCadastro');
 //    Route::get('/definirperfil', 'definirPerfil');

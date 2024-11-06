@@ -30,7 +30,12 @@ class SiteModel extends Model {
         return DB::select($sql);
     }
     public function getjogoDestaque() {
-        $sql = "select * from public.jogos where status = '1' and destaque = '1' order by codigo desc limit 1";
+        $sql = "select j.*, ca.descricao as cidade_a, cb.descricao as cidade_b "
+                . "from public.jogos j "
+                . "inner join public.cidades ca on ca.codigo = j.cidade_a_codigo "
+                . "inner join public.cidades cb on cb.codigo = j.cidade_b_codigo "
+                . "where j.destaque = '1' "
+                . "order by j.codigo desc limit 1";
         return DB::select($sql);
     }
 }
