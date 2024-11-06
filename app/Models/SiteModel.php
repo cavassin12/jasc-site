@@ -29,6 +29,10 @@ class SiteModel extends Model {
         $sql = "select * from public.banners where status = '1' order by codigo asc limit 4";
         return DB::select($sql);
     }
+    public function getGalerias() {
+        $sql = "select * from public.galerias where status = '1' order by codigo desc limit 5";
+        return DB::select($sql);
+    }
     public function getjogoDestaque() {
         $sql = "select j.*, ca.descricao as cidade_a, cb.descricao as cidade_b "
                 . "from public.jogos j "

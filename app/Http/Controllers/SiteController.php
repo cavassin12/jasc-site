@@ -23,7 +23,10 @@ class SiteController extends Controller {
     public function home():View {
         $this->sm = new SiteModel();
         
-        return view('site/home', ["banners"=> $this->sm->getBanners(), "noticias"=>$this->sm->getUltimasNoticias(), "jogodest"=> $this->sm->getjogoDestaque()]);
+        return view('site/home', ["banners"=> $this->sm->getBanners(), 
+            "noticias"=>$this->sm->getUltimasNoticias(), 
+            "jogodest"=> $this->sm->getjogoDestaque(),
+            "galerias"=>$this->sm->getGalerias()]);
     }
     public function noticias():View {
         $this->sm = new SiteModel();
