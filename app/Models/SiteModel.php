@@ -21,8 +21,29 @@ class SiteModel extends Model {
                 . "limit 5";
         return DB::select($sql);
     }
+    public function getAllNoticias() {
+        $sql = "select n.codigo, n.titulo, n.dt_record, n.texto, "
+                . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as image "
+                . "from public.noticias n "
+                . "where n.status = '1' "
+                . "order by n.codigo desc "
+                . "limit 10";
+        return DB::select($sql);
+    }
     public function getNoticiaById(int $id) {
-        $sql = "select * from public.noticias where codigo = ?";
+        $sql = "select n.*, "
+                . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as capa "
+                . "from public.noticias n "
+                . "where n.codigo = ?";
+        return DB::select($sql, [$id]);
+    }
+    public function getOutrasNoticiasExcetoId(int $id) {
+        $sql = "select n.*,"
+                . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as capa "
+                . "from public.noticias n "
+                . "where n.status = '1' "
+                . "and n.codigo <> ? "
+                . "order by n.codigo desc limit 4";
         return DB::select($sql, [$id]);
     }
     public function getBanners() {

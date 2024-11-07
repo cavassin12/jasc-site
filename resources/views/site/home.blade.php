@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>JASC 2024 - Concórdia</title>
+        <title>JASC - Concórdia</title>
 
         <link rel='stylesheet' href='plugins/goodlayers-core/plugins/fontawesome/font-awesome.css' type='text/css' media='all'>
         <link rel='stylesheet' href='plugins/goodlayers-core/plugins/elegant/elegant-font.css' type='text/css' media='all'>
@@ -47,7 +47,7 @@
                                     <li class="menu-item"><a href="{{url("/noticias")}}">Notícias</a></li>
                                     <li class="menu-item"><a href="{{url("/jogos")}}">Jogos</a></li>
                                     <li class="menu-item"><a href="{{url("/classificacao")}}">Ranking</a></li>
-                                    <li class="menu-item"><a href="{{url("/contato")}}">Contato</a></li>
+                                    <!--<li class="menu-item"><a href="{{url("/contato")}}">Contato</a></li>-->
 
                                 </ul>
                             </div>
@@ -79,7 +79,7 @@
                                                 <li class="menu-item menu-item-home current-menu-item bigslam-normal-menu"><a href="{{url("/")}}">Home</a></li>
 
                                                 <li class="menu-item bigslam-normal-menu"><a href="{{url("/noticias")}}">Notícias</a></li>
-                                                <li class="menu-item bigslam-normal-menu"><a href="{{url("/jogos")}}">Jogos</a></li>
+
                                                 <li class="bigslam-center-nav-menu-item">
                                                     <div class="bigslam-logo  bigslam-item-pdlr">
                                                         <div class="bigslam-logo-inner">
@@ -87,10 +87,11 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                                <li class="menu-item bigslam-normal-menu"><a href="{{url("/jogos")}}">Jogos</a></li>
                                                 <li class="menu-item menu-item-has-children bigslam-normal-menu"><a href="{{url("/classificacao")}}" class="sf-with-ul-pre">Ranking</a>
                                                 </li>
-                                                <li class="menu-item menu-item-has-children bigslam-mega-menu"><a href="{{url("/contato")}}" class="sf-with-ul-pre">Contato</a>
-                                                </li>
+                                                <!--                                                <li class="menu-item menu-item-has-children bigslam-mega-menu"><a href="{{url("/contato")}}" class="sf-with-ul-pre">Contato</a>
+                                                                                                </li>-->
                                             </ul>
                                             <div class="bigslam-navigation-slide-bar bigslam-style-2" id="bigslam-navigation-slide-bar"></div>
                                         </div>
@@ -115,7 +116,7 @@
                                 <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
                                     <div class="gdlr-core-pbf-element">
                                         <div class="gdlr-core-revolution-slider-item gdlr-core-item-pdlr gdlr-core-item-pdb " style="padding-bottom: 0px ;">
-                                            <!-- START Soccer 02 REVOLUTION SLIDER 6.1.5 -->
+                                            
                                             <p class="rs-p-wp-fix"></p>
                                             <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery" style="background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
                                                 <rs-module id="rev_slider_1_1" style="display:none;" data-version="6.1.5">
@@ -137,7 +138,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if(count($jogodest)>0)
+                        @foreach($jogodest as $jd)
                         <div class="gdlr-core-pbf-wrapper " style="margin: -180px 0px 0px 0px;padding: 20px 0px 0px 0px;" data-skin="Hp3 Score" id="gdlr-core-wrapper-1">
                             <div class="gdlr-core-pbf-background-wrap" style="background-color: #f7f7f7 ;"></div>
                             <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
@@ -153,11 +154,28 @@
                                                         <div class="gdlr-core-sp-featured-event-item gdlr-core-item-pdb clearfix " style="padding-bottom: 0px ;">
                                                             <div class="bigslam-sp-event-featured-top bigslam-status-vs">
                                                                 <div class="bigslam-sp-event-featured-title bigslam-title-font clearfix">
-                                                                    <div class="bigslam-sp-event-featured-title-left"><span class="bigslam-sp-team-logo"><img width="90" height="89" src="upload/flag-15.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span><span class="bigslam-sp-team-name" style="font-weight: 400  !important;letter-spacing: 0px  !important;text-transform: none  !important;margin-top: 30px  !important;">Realasdasdas Soccer</span></div><span class="bigslam-sp-event-result" style="margin-top: 0px  !important;"><a class="gdlr-core-skin-title-important" href="#">VS</a></span>
-                                                                    <div class="bigslam-sp-event-featured-title-right"><span class="bigslam-sp-team-logo"><img width="105" height="120" src="upload/flag-13.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span><span class="bigslam-sp-team-name" style="font-weight: 400  !important;letter-spacing: 0px  !important;text-transform: none  !important;margin-top: 30px  !important;">Valencia</span></div>
+                                                                    <div class="bigslam-sp-event-featured-title-left">
+<!--                                                                        <span class="bigslam-sp-team-logo">
+                                                                            <img width="90" height="89" src="upload/flag-15.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" >
+                                                                        </span>-->
+                                                                        <span class="bigslam-sp-team-name" style="font-weight: 400  !important;letter-spacing: 0px  !important;text-transform: none  !important;margin-top: 30px  !important;">{{$jd->cidade_a}}</span>
+                                                                    </div>
+                                                                    <span class="bigslam-sp-event-result" style="margin-top: 0px  !important;">
+                                                                        <a class="gdlr-core-skin-title-important" href="#">VS</a>
+                                                                    </span>
+                                                                    <div class="bigslam-sp-event-featured-title-right">
+<!--                                                                        <span class="bigslam-sp-team-logo">
+                                                                            <img width="105" height="120" src="upload/flag-13.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" >
+                                                                        </span>-->
+                                                                        <span class="bigslam-sp-team-name" style="font-weight: 400  !important;letter-spacing: 0px  !important;text-transform: none  !important;margin-top: 30px  !important;">{{$jd->cidade_b}}</span>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">August 13, 2020</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">Santiago Bernabéu Stadium</a></span></div>
-                                                                <div class="bigslam-sp-event-featured-link"><a class="gdlr-core-button gdlr-core-rectangle  seocrawler-solid" href="#" style="border-radius: 36px;-moz-border-radius: 36px;-webkit-border-radius: 36px;">ver</a></div>
+                                                                <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">{{$jd->data." ".$jd->hora}}</span>
+                                                                    <span class="bigslam-sp-event-venue"><a href="#" rel="tag">{{$jd->local}}</a></span>
+                                                                </div>
+                                                                <div class="bigslam-sp-event-featured-link">
+                                                                    <a class="gdlr-core-button gdlr-core-rectangle  seocrawler-solid" href="{{url('jogo/'.base64_encode($jd->codigo))}}" style="border-radius: 36px;-moz-border-radius: 36px;-webkit-border-radius: 36px;">Ver</a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -168,7 +186,7 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
+                        @endforeach
                         @if(count($noticias)>0)
                         <div class="gdlr-core-pbf-wrapper " style="padding: 80px 0px 50px 0px;">
                             <div class="gdlr-core-pbf-background-wrap" style="background-color: #f7f7f7 ;">
@@ -437,7 +455,7 @@
                     </div>
                 </div>
                 <footer>
-                    <div class="bigslam-footer-wrapper">
+<!--                    <div class="bigslam-footer-wrapper">
                         <div class="bigslam-footer-container bigslam-container clearfix">
                             <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">
                                 <div id="text-11" class="widget widget_text bigslam-widget">
@@ -469,7 +487,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div>-->
                     <div class="bigslam-copyright-wrapper">
                         <div class="bigslam-copyright-container bigslam-container">
                             <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>
@@ -502,7 +520,7 @@ SnazzyDataForSnazzyMaps = {
         "createdOn": "2013-11-12T18:21:41.94",
         "tags": ["dark", "greyscale"],
         "colors": ["black", "gray"]
-};
+        };
 /* ]]> */
         </script>
         <script type='text/javascript' src='plugins/snazzy-maps/snazzymaps.js'></script>
@@ -520,11 +538,11 @@ for (var i in t.tabw = t.tabhide >= e ? 0 : t.tabw, t.thumbw = t.thumbhide >= e 
 for (var i in r = a[0], a) r > a[i] && 0 < a[i] && (r = a[i], n = i);
 var d = e > t.gw[n] + t.tabw + t.thumbw ? 1 : (e - (t.tabw + t.thumbw)) / t.gw[n];
 h = t.gh[n] * d + (t.tabh + t.thumbh)
-}
+        }
 void 0 === window.rs_init_css && (window.rs_init_css = document.head.appendChild(document.createElement("style"))), document.getElementById(t.c).height = h, window.rs_init_css.innerHTML += "#" + t.c + "_wrapper { height: " + h + "px }"
-} catch (t) {
+        } catch (t) {
 console.log("Failure at Presize of Slider:" + t)
-}
+        }
 };
         </script>
 
@@ -540,7 +558,7 @@ var gdlr_core_pbf = {
         },
         "ajax_url": "#",
         "ilightbox_skin": "dark"
-};
+        };
 /* ]]> */
         </script>
         <script type='text/javascript' src='plugins/goodlayers-core/include/js/page-builder.js'></script>
@@ -554,7 +572,7 @@ var localized_strings = {
         "secs": "secs",
         "previous": "Previous",
         "next": "Next"
-};
+        };
 /* ]]> */
         </script>
         <script type='text/javascript' src='plugins/sportspress/assets/js/sportspress.js'></script>
@@ -563,7 +581,7 @@ var localized_strings = {
 /* <![CDATA[ */
 var bigslam_script_core = {
 "home_url": "index.html"
-};
+        };
 /* ]]> */
         </script>
         <script type='text/javascript' src='js/plugins.js'></script>
@@ -577,7 +595,7 @@ c: 'rev_slider_1_1',
         gh: [890, 890, 890, 520],
         layout: 'fullwidth',
         mh: "0"
-});
+        });
 var revapi1,
         tpj;
 jQuery(function() {
@@ -621,7 +639,7 @@ jsFileLocation: "plugins/revslider/public/assets/js/",
         fallbacks: {
         allowHTML5AutoPlayOnAndroid: true
         },
-});
+        });
 }
 
 });

@@ -8,7 +8,7 @@ use Illuminate\View\View;
 use App\Models\SiteModel;
 use function view;
 
-class SiteController extends Controller {
+class PainelController extends Controller {
 
     private SiteModel $sm;
     public function __construct() {
@@ -30,7 +30,7 @@ class SiteController extends Controller {
     }
     public function noticias():View {
         $this->sm = new SiteModel();
-        return view('site/noticias', ["noticias"=>$this->sm->getAllNoticias()]);
+        return view('site/home', ["banners"=> $this->sm->getBanners(), "noticias"=>$this->sm->getUltimasNoticias()]);
     }
     public function noticiasbyid(Request $request, String $chave):View {
         $this->sm = new SiteModel();

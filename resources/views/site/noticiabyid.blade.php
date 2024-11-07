@@ -1,3 +1,9 @@
+<?php
+$d = array();
+foreach ($noticia as $ntt) {
+    $d = $ntt;
+}
+?>
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
     <head>
@@ -47,7 +53,6 @@
                                     <li class="menu-item"><a href="{{url("/noticias")}}">Notícias</a></li>
                                     <li class="menu-item"><a href="{{url("/jogos")}}">Jogos</a></li>
                                     <li class="menu-item"><a href="{{url("/classificacao")}}">Ranking</a></li>
-                                    <li class="menu-item"><a href="{{url("/contato")}}">Contato</a></li>
 
                                 </ul>
                             </div>
@@ -79,7 +84,7 @@
                                                 <li class="menu-item menu-item-home bigslam-normal-menu"><a href="{{url("/")}}">Home</a></li>
 
                                                 <li class="menu-item current-menu-item bigslam-normal-menu"><a href="{{url("/noticias")}}">Notícias</a></li>
-                                                <li class="menu-item bigslam-normal-menu"><a href="{{url("/jogos")}}">Jogos</a></li>
+                                                
                                                 <li class="bigslam-center-nav-menu-item">
                                                     <div class="bigslam-logo  bigslam-item-pdlr">
                                                         <div class="bigslam-logo-inner">
@@ -87,10 +92,11 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                                <li class="menu-item bigslam-normal-menu"><a href="{{url("/jogos")}}">Jogos</a></li>
                                                 <li class="menu-item menu-item-has-children bigslam-normal-menu"><a href="{{url("/classificacao")}}" class="sf-with-ul-pre">Ranking</a>
                                                 </li>
-                                                <li class="menu-item menu-item-has-children bigslam-mega-menu"><a href="{{url("/contato")}}" class="sf-with-ul-pre">Contato</a>
-                                                </li>
+<!--                                                <li class="menu-item menu-item-has-children bigslam-mega-menu"><a href="{{url("/contato")}}" class="sf-with-ul-pre">Contato</a>
+                                                </li>-->
                                             </ul>
                                             <div class="bigslam-navigation-slide-bar bigslam-style-2" id="bigslam-navigation-slide-bar"></div>
                                         </div>
@@ -101,7 +107,7 @@
                     </header>
                 </div>
                 <div class="bigslam-page-wrapper" id="bigslam-page-wrapper">
-                    <div class="bigslam-blog-title-wrap  bigslam-style-custom bigslam-feature-image" style="background-image: url('https://goodlayers.b-cdn.net/bigslam/homepages/soccer02/wp-content/uploads/sites/5/2016/06/shutterstock_719387275.jpg') ;">
+                    <div class="bigslam-blog-title-wrap  bigslam-style-custom bigslam-feature-image" style="background-image: url('https75.jpg') ;">
                         <div class="bigslam-header-transparent-substitute" style="height: 165.297px;"></div>
                         <div class="bigslam-blog-title-top-overlay"></div>
                         <div class="bigslam-blog-title-overlay"></div>
@@ -109,13 +115,13 @@
                             <div class="bigslam-blog-title-content bigslam-item-pdlr" style="padding-top: 400px ;padding-bottom: 80px ;">
                                 <header class="bigslam-single-article-head clearfix">
                                     <div class="bigslam-single-article-date-wrapper">
-                                        <div class="bigslam-single-article-date-day">06</div>
-                                        <div class="bigslam-single-article-date-month">Jun</div>
-                                        <div class="bigslam-single-article-date-year">2016</div>
+                                        <div class="bigslam-single-article-date-day">{{substr($d->dt_record, 8,2)}}</div>
+                                        <div class="bigslam-single-article-date-month">{{App\Models\Sistema::intToStrMes(intval(substr($d->dt_record, 5, 2)))}}</div>
+                                        <div class="bigslam-single-article-date-year">{{substr($d->dt_record, 0,4)}}</div>
 
                                     </div>
                                     <div class="bigslam-single-article-head-right">
-                                        <h1 class="bigslam-single-article-title" data-orig-font="50px" style="font-size: 50px;">TITULO</h1>
+                                        <h1 class="bigslam-single-article-title" data-orig-font="50px" style="font-size: 50px;">{{$d->titulo}}</h1>
                                     </div>
                                 </header>
                             </div>
@@ -129,7 +135,7 @@
                                         <article id="post-1313" class="post-1313 post type-post status-publish format-standard has-post-thumbnail hentry category-blog tag-metal tag-mining tag-polymer">
                                             <div class="bigslam-single-article">
                                                 <div class="bigslam-single-article-content">
-                                                    <p>Noticia Aqui</p>
+                                                    <p>{{$d->texto}}</p>
                                                 </div>	
                                             </div>
                                         </article>
@@ -139,22 +145,39 @@
                                     <!-- bigslam-comments-area --></div></div>
                             <div class=" bigslam-sidebar-right bigslam-column-20 bigslam-line-height bigslam-line-height">
                                 <div class="bigslam-sidebar-area bigslam-item-pdlr">
-                                   
+                                    @if(count($outrasnt)>0)
                                     <div id="gdlr-core-recent-post-widget-2" class="widget widget_gdlr-core-recent-post-widget bigslam-widget">
                                         <h3 class="bigslam-widget-title">Notícias recentes</h3>
                                         <div class="gdlr-core-recent-post-widget-wrap gdlr-core-style-1">
+                                            @foreach($outrasnt as $on)
                                             <div class="gdlr-core-recent-post-widget clearfix">
                                                 <div class="gdlr-core-recent-post-widget-thumbnail gdlr-core-media-image">
-                                                    <a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/i-throw-myself-down-among-the-tall/">
-                                                        <img src="https://goodlayers.b-cdn.net/bigslam/homepages/soccer02/wp-content/uploads/sites/5/2016/06/shutterstock_706586722-150x150.jpg" alt="" width="150" height="150" title="shutterstock_706586722"></a></div>
-                                                <div class="gdlr-core-recent-post-widget-content"><div class="gdlr-core-recent-post-widget-title">
-                                                        <a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/i-throw-myself-down-among-the-tall/">Maddison will learn from casino mistake</a></div>
-                                                    <div class="gdlr-core-recent-post-widget-info"><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
-                                                            <span class="gdlr-core-head"><i class="fa fa-clock-o"></i></span><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/">June 6, 2016</a>
-                                                        </span><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-author">
-                                                            <span class="gdlr-core-head"><i class="fa fa-user-o"></i></span>
-                                                            <a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/author/superuser/" title="Posts by superuser" rel="author">superuser</a></span></div></div></div><div class="gdlr-core-recent-post-widget clearfix"><div class="gdlr-core-recent-post-widget-thumbnail gdlr-core-media-image"><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/even-the-all-powerful-pointing/"><img src="https://goodlayers.b-cdn.net/bigslam/homepages/soccer02/wp-content/uploads/sites/5/2019/09/photodune-7717723-soccer-players-m-150x150.jpg" alt="" width="150" height="150" title="soccer players"></a></div><div class="gdlr-core-recent-post-widget-content"><div class="gdlr-core-recent-post-widget-title"><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/even-the-all-powerful-pointing/">Gerrard would’ve ‘loved’ to play for Klopp</a></div><div class="gdlr-core-recent-post-widget-info"><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date"><span class="gdlr-core-head"><i class="fa fa-clock-o"></i></span><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/">June 6, 2016</a></span><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-author"><span class="gdlr-core-head"><i class="fa fa-user-o"></i></span><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/author/superuser/" title="Posts by superuser" rel="author">superuser</a></span></div></div></div><div class="gdlr-core-recent-post-widget clearfix"><div class="gdlr-core-recent-post-widget-thumbnail gdlr-core-media-image"><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/the-surfing-man-will-blow-your-mind/"><img src="https://goodlayers.b-cdn.net/bigslam/homepages/soccer02/wp-content/uploads/sites/5/2019/10/Untitled-12-150x150.jpg" alt="" width="150" height="150" title="Untitled-12"></a></div><div class="gdlr-core-recent-post-widget-content"><div class="gdlr-core-recent-post-widget-title"><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/the-surfing-man-will-blow-your-mind/">Poland became the latest team to qualify for Euro 2020</a></div><div class="gdlr-core-recent-post-widget-info"><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date"><span class="gdlr-core-head"><i class="fa fa-clock-o"></i></span><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/2016/06/06/">June 6, 2016</a></span><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-author"><span class="gdlr-core-head"><i class="fa fa-user-o"></i></span><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/author/superuser/" title="Posts by superuser" rel="author">superuser</a></span></div></div></div></div></div>
-                                    
+                                                    <a href="{{url('noticias/'.base64_encode($on->codigo))}}">
+                                                        <img src="{{$on->capa}}" alt="" width="150" height="150" title="shutterstock_706586722">
+                                                    </a>
+                                                </div>
+                                                <div class="gdlr-core-recent-post-widget-content">
+                                                    <div class="gdlr-core-recent-post-widget-title">
+                                                        <a href="{{url('noticias/'.base64_encode($on->codigo))}}">{{$on->titulo}}</a>
+                                                    </div>
+                                                    <div class="gdlr-core-recent-post-widget-info">
+                                                        <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date">
+                                                            <span class="gdlr-core-head"><i class="fa fa-clock-o"></i>
+                                                            </span><a href="#">{{App\Models\Sistema::toDataBR($on->dt_record)}}</a>
+                                                        </span>
+<!--                                                        <span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-author">
+                                                            <span class="gdlr-core-head">
+                                                                <i class="fa fa-user-o"></i>
+                                                            </span>
+                                                            <a href="https://druser/" title="Posts by superuser" rel="author">superuser</a>
+                                                        </span>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
