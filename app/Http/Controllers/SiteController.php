@@ -32,6 +32,12 @@ class SiteController extends Controller {
         $this->sm = new SiteModel();
         return view('site/noticias', ["noticias"=>$this->sm->getAllNoticias()]);
     }
+    public function jogos():View {
+        $this->sm = new SiteModel();
+        return view('site/jogos', ["noticias"=>$this->sm->getAllNoticias()]);
+    }
+    
+    
     public function noticiasbyid(Request $request, String $chave):View {
         $this->sm = new SiteModel();
         $id = intval(base64_decode($chave));

@@ -83,6 +83,7 @@
                                                 <li class="bigslam-center-nav-menu-item">
                                                     <div class="bigslam-logo  bigslam-item-pdlr">
                                                         <div class="bigslam-logo-inner">
+                                                            <!--{{asset('storage/logo.png')}}-->
                                                             <a href="{{url("/home")}}"><img src="upload/logo.png" alt="" width="200" height="191" title="logo"></a>
                                                         </div>
                                                     </div>
@@ -124,7 +125,7 @@
 
                                                         @foreach($banners as $b)
                                                         <rs-slide data-key="rs-1" data-title="Slide" data-thumb="#" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:d;">
-                                                            <img src="{{$b->caminho_banner}}"  class="rev-slidebg" data-no-retina="">
+                                                            <img src="{{asset($b->caminho_banner)}}"  class="rev-slidebg" data-no-retina="">
                                                         </rs-slide>
                                                         @endforeach
                                                     </rs-slides>
@@ -170,7 +171,7 @@
                                                                         <span class="bigslam-sp-team-name" style="font-weight: 400  !important;letter-spacing: 0px  !important;text-transform: none  !important;margin-top: 30px  !important;">{{$jd->cidade_b}}</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">{{$jd->data." ".$jd->hora}}</span>
+                                                                <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">{{App\Models\Sistema::toDataHoraBR($jd->data." ".substr($jd->hora, 0, 5))}}</span>
                                                                     <span class="bigslam-sp-event-venue"><a href="#" rel="tag">{{$jd->local}}</a></span>
                                                                 </div>
                                                                 <div class="bigslam-sp-event-featured-link">

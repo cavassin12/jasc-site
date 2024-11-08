@@ -183,7 +183,7 @@ foreach ($noticia as $ntt) {
                         </div>
                     </div>
                     <footer>
-                        <div class="bigslam-footer-wrapper">
+<!--                        <div class="bigslam-footer-wrapper">
                             <div class="bigslam-footer-container bigslam-container clearfix">
                                 <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">
                                     <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
@@ -204,7 +204,7 @@ foreach ($noticia as $ntt) {
                                 </div>
 
                             </div>
-                        </div>
+                        </div>-->
                         <div class="bigslam-copyright-wrapper">
                             <div class="bigslam-copyright-container bigslam-container">
                                 <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>

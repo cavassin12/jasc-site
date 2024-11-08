@@ -110,8 +110,7 @@ $d = array();
                     <div class="bigslam-page-title-overlay"></div>
                     <div class="bigslam-page-title-container bigslam-container">
                         <div class="bigslam-page-title-content bigslam-item-pdlr">
-                            <h1 class="bigslam-page-title">Blog Full Right Sidebar</h1>
-                            <div class="bigslam-page-caption">Caption Aligned Here</div>
+                            <h1 class="bigslam-page-title">Notícias e Informativos</h1>
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'home');
     Route::get('/site', 'home');
+    Route::get('/jogos', 'jogos');
     Route::get('/noticias', 'noticias');
     Route::get('/noticias/{chave}', 'noticiasbyid');
     Route::get('/classificacao', 'classificacao');
