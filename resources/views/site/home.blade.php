@@ -125,7 +125,7 @@
 
                                                         @foreach($banners as $b)
                                                         <rs-slide data-key="rs-1" data-title="Slide" data-thumb="#" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:d;">
-                                                            <img src="{{asset($b->caminho_banner)}}"  class="rev-slidebg" data-no-retina="">
+                                                            <img src="{{url($b->caminho_banner)}}"  class="rev-slidebg" data-no-retina="">
                                                         </rs-slide>
                                                         @endforeach
                                                     </rs-slides>
