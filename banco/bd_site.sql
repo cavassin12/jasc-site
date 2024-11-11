@@ -81,5 +81,6 @@ create table public.jogos_classificacao(
 	codigo bigserial not null primary key,
 	cidade bigint not null references public.cidades(codigo),
 	modalidade int not null references public.modalidades(codigo),
-	posicao int not null default 9999
+	posicao int not null default 9999,
+	pontos numeric(6,2) not null default 0.00
 )

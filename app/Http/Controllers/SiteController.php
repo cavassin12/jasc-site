@@ -11,42 +11,52 @@ use function view;
 class SiteController extends Controller {
 
     private SiteModel $sm;
+
     public function __construct() {
         $this->sm = new SiteModel();
     }
-   
+
     public function logar(Request $request): RedirectResponse {
         $authUser = new AuthUser();
         return $authUser->logar($request);
     }
-  
-    public function home():View {
+
+    public function home(): View {
         $this->sm = new SiteModel();
-        
-        return view('site/home', ["banners"=> $this->sm->getBanners(), 
-            "noticias"=>array(),//$this->sm->getUltimasNoticias(), 
-            "jogodest"=> array(),//$this->sm->getjogoDestaque(),
-            "galerias"=>array(),//$this->sm->getGalerias()
-                ]);
+
+        return view('site/home', ["banners" => $this->sm->getBanners(),
+            "noticias" => array(), //$this->sm->getUltimasNoticias(), 
+            "jogodest" => array(), //$this->sm->getjogoDestaque(),
+            "galerias" => array(), //$this->sm->getGalerias()
+        ]);
     }
-    public function noticias():View {
+
+    public function noticias(): View {
         $this->sm = new SiteModel();
-        return view('site/noticias', ["noticias"=>$this->sm->getAllNoticias()]);
+        return view('site/noticias', ["noticias" => $this->sm->getAllNoticias()]);
     }
-    public function jogos():View {
+
+    public function jogos(): View {
         $this->sm = new SiteModel();
         $hoje = date("Y-m-d");
-        return view('site/jogos', ["jogos"=>$this->sm->getJogosByDate($hoje)]);
+        return view('site/jogos', ["jogos" => $this->sm->getJogosByDate($hoje)]);
     }
-    
-    
-    public function noticiasbyid(Request $request, String $chave):View {
+
+    public function noticiasbyid(Request $request, String $chave): View {
         $this->sm = new SiteModel();
         $id = intval(base64_decode($chave));
         return view('site/noticiabyid', [
-            "noticia"=>$this->sm->getNoticiaById($id), 
-            "outrasnt"=>$this->sm->getOutrasNoticiasExcetoId($id)
-                ]);
+            "noticia" => $this->sm->getNoticiaById($id),
+            "outrasnt" => $this->sm->getOutrasNoticiasExcetoId($id)
+        ]);
     }
-    
+
+    public function classificacao(Request $request): View {
+        $this->sm = new SiteModel();
+        $id = $request->mod ?? 0;
+        return view('site/classificacao', [
+            "modalidades" => $this->sm->getAllModalidades(),
+            "classi" => $this->sm->getClassificacoesByModalidade($id)
+        ]);
+    }
 }

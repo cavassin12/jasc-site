@@ -21,6 +21,7 @@ class SiteModel extends Model {
                 . "limit 5";
         return DB::select($sql);
     }
+
     public function getAllNoticias() {
         $sql = "select n.codigo, n.titulo, n.dt_record, n.texto, "
                 . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as image "
@@ -30,6 +31,7 @@ class SiteModel extends Model {
                 . "limit 10";
         return DB::select($sql);
     }
+
     public function getNoticiaById(int $id) {
         $sql = "select n.*, "
                 . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as capa "
@@ -37,6 +39,7 @@ class SiteModel extends Model {
                 . "where n.codigo = ?";
         return DB::select($sql, [$id]);
     }
+
     public function getOutrasNoticiasExcetoId(int $id) {
         $sql = "select n.*,"
                 . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as capa "
@@ -46,14 +49,17 @@ class SiteModel extends Model {
                 . "order by n.codigo desc limit 4";
         return DB::select($sql, [$id]);
     }
+
     public function getBanners() {
         $sql = "select * from public.banners where status = '1' order by codigo asc limit 4";
         return DB::select($sql);
     }
+
     public function getGalerias() {
         $sql = "select * from public.galerias where status = '1' order by codigo desc limit 5";
         return DB::select($sql);
     }
+
     public function getjogoDestaque() {
         $sql = "select j.*, ca.descricao as cidade_a, cb.descricao as cidade_b "
                 . "from public.jogos j "
@@ -63,10 +69,9 @@ class SiteModel extends Model {
                 . "order by j.codigo desc limit 1";
         return DB::select($sql);
     }
-    
-    
-    public function getJogosByDate($data){
-        
+
+    public function getJogosByDate($data) {
+
         $sql = "select j.*, ca.descricao as cidade_a, cb.descricao as cidade_b "
                 . "from public.jogos j "
                 . "inner join public.cidades ca on ca.codigo = j.cidade_a_codigo "
@@ -75,6 +80,18 @@ class SiteModel extends Model {
                 . "order by j.data asc, hora asc, codigo asc";
         return DB::select($sql);
     }
-    
-    
+
+    public function getClassificacoesByModalidade($id) {
+        $sql = "select j.*, ca.descricao as cidade_nome "
+                . "from public.jogos_classificacao j "
+                . "inner join public.cidades ca on ca.codigo = j.cidade "
+                . "where j.modalidade = ? "
+                . "order by posicao desc";
+        return DB::select($sql, [$id]);
+    }
+
+    public function getAllModalidades() {
+        $sql = "select * from public.modalidades  order by descricao";
+        return DB::select($sql);
+    }
 }

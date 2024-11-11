@@ -8,7 +8,7 @@ $d = array();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>JASC 2024 - Concórdia - Jogos</title>
+        <title>JASC 2024 - Concórdia - Classificação</title>
 
         <link rel='stylesheet' href='{{url('plugins/goodlayers-core/plugins/fontawesome/font-awesome.css')}}' type='text/css' media='all'>
         <link rel='stylesheet' href='{{url('plugins/goodlayers-core/plugins/elegant/elegant-font.css')}}' type='text/css' media='all'>
@@ -41,8 +41,6 @@ $d = array();
                         </div>
                     </div>
                     <div class="bigslam-mobile-menu-right">
-                        <div class="bigslam-main-menu-search" id="bigslam-mobile-top-search"><i class="fa fa-search"></i></div>
-
 
                         <div class="bigslam-mobile-menu"><a class="bigslam-mm-menu-button bigslam-mobile-menu-button bigslam-mobile-button-hamburger-with-border" href="#bigslam-mobile-menu"><i class="fa fa-bars"></i></a>
                             <div class="bigslam-mm-menu-wrap bigslam-navigation-font" id="bigslam-mobile-menu" data-slide="right">
@@ -90,8 +88,8 @@ $d = array();
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li class="menu-item current-menu-item bigslam-normal-menu"><a href="{{url("/jogos")}}">Jogos</a></li>
-                                                <li class="menu-item bigslam-normal-menu"><a href="{{url("/classificacao")}}" class="sf-with-ul-pre">Ranking</a>
+                                                <li class="menu-item bigslam-normal-menu"><a href="{{url("/jogos")}}">Jogos</a></li>
+                                                <li class="menu-item current-menu-item bigslam-normal-menu"><a href="{{url("/classificacao")}}" class="sf-with-ul-pre">Ranking</a>
                                                 </li>
                                                 <!--                                                <li class="menu-item menu-item-has-children bigslam-mega-menu"><a href="{{url("/contato")}}" class="sf-with-ul-pre">Contato</a>
                                                                                                             </li>-->
@@ -110,7 +108,7 @@ $d = array();
                     <div class="bigslam-page-title-overlay"></div>
                     <div class="bigslam-page-title-container bigslam-container">
                         <div class="bigslam-page-title-content bigslam-item-pdlr">
-                            <h1 class="bigslam-page-title">Jogos</h1>
+                            <h1 class="bigslam-page-title">Ranking</h1>
                             <!--<div class="bigslam-page-caption">Agenda de jogos para o dia {{date('d/m/Y')}}</div>-->
                         </div>
                     </div>
@@ -137,29 +135,34 @@ $d = array();
                                                                                                                 <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">September 5, 2030</span><span class="bigslam-sp-event-venue"><a href="https://demo.goodlayers.com/bigslam/homepages/soccer02/venue/old-trafford/" rel="tag">Old Trafford</a></span></div>
                                                                                                                 <div class="bigslam-sp-event-featured-link"><a class="bigslam-sp-event-link" href="https://demo.goodlayers.com/bigslam/homepages/soccer02/event/man-utd-vs-liverpool/">Preview<i class="fa fa-long-arrow-right"></i></a></div>
                                                                                                             </div>-->
-                                                        @foreach($jogos as $j)
+                                                        
+                                                        @if(count($classi) ==0)
+                                                        <div class="bigslam-sp-event-featured-list clearfix">
+                                                            
+                                                            <h3>O ranking ainda não está disponível</h3>
+                                                        </div>
+                                                        
+                                                        
+                                                        @endif
+                                                        
+                                                        <?php
+                                                        $t = 1;
+                                                        ?>
+                                                        @foreach($classi as $j)
                                                         <div class="bigslam-sp-event-featured-list clearfix">
                                                             <div class="bigslam-sp-event-featured-title bigslam-title-font">
-                                                                <span class="bigslam-sp-team-name">{{$j->cidade_a}}</span>
                                                                 <span class="bigslam-sp-event-result">
-                                                                    <a href="#">VS</a></span>
-                                                                <span class="bigslam-sp-team-name">{{$j->cidade_b}}</span>
+                                                                    <a href="#"><?= $t;?></a></span>
+                                                                <span class="bigslam-sp-team-name">{{$j->cidade_nome}}</span>
                                                                 
                                                             </div>
                                                             
                                                             <div class="bigslam-sp-event-featured-info">
-                                                                <span class="bigslam-sp-event-date">{{App\Models\Sistema::toDataHoraBR($j->data." ".substr($j->hora, 0, 5))}}</span>
-                                                                <span class="bigslam-sp-event-venue">
-                                                                    <a href="" rel="tag">{{$j->local}}</a>
-                                                                </span>
-                                                                @if($j->link_transmissao!="")
-                                                                <a class="bigslam-sp-event-link" href="{{$j->link_transmissao}}">Assistir
-                                                                    <i class="fa fa-long-arrow-right">
-                                                                    </i>
+                                                                <a class="bigslam-sp-event-link" href="#">{{$j->pontos}}
                                                                 </a>
-                                                                @endif
                                                             </div>
                                                         </div>
+                                                        <?php $t++;?>
                                                         @endforeach
 
                                                     </div>
