@@ -24,9 +24,10 @@ class SiteController extends Controller {
         $this->sm = new SiteModel();
         
         return view('site/home', ["banners"=> $this->sm->getBanners(), 
-            "noticias"=>$this->sm->getUltimasNoticias(), 
-            "jogodest"=> $this->sm->getjogoDestaque(),
-            "galerias"=>$this->sm->getGalerias()]);
+            "noticias"=>array(),//$this->sm->getUltimasNoticias(), 
+            "jogodest"=> array(),//$this->sm->getjogoDestaque(),
+            "galerias"=>array(),//$this->sm->getGalerias()
+                ]);
     }
     public function noticias():View {
         $this->sm = new SiteModel();
@@ -34,7 +35,8 @@ class SiteController extends Controller {
     }
     public function jogos():View {
         $this->sm = new SiteModel();
-        return view('site/jogos', ["noticias"=>$this->sm->getAllNoticias()]);
+        $hoje = date("Y-m-d");
+        return view('site/jogos', ["jogos"=>$this->sm->getJogosByDate($hoje)]);
     }
     
     

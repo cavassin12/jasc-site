@@ -107,7 +107,7 @@ foreach ($noticia as $ntt) {
                     </header>
                 </div>
                 <div class="bigslam-page-wrapper" id="bigslam-page-wrapper">
-                    <div class="bigslam-blog-title-wrap  bigslam-style-custom bigslam-feature-image" style="background-image: url('https75.jpg') ;">
+                    <div class="bigslam-blog-title-wrap  bigslam-style-custom bigslam-feature-image" style="background-image: url('../upload/ConcordiaJascBanner.png') ;">
                         <div class="bigslam-header-transparent-substitute" style="height: 165.297px;"></div>
                         <div class="bigslam-blog-title-top-overlay"></div>
                         <div class="bigslam-blog-title-overlay"></div>

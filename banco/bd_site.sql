@@ -77,4 +77,9 @@ create table public.galerias_imagens(
 );
 
 
-
+create table public.jogos_classificacao(
+	codigo bigserial not null primary key,
+	cidade bigint not null references public.cidades(codigo),
+	modalidade int not null references public.modalidades(codigo),
+	posicao int not null default 9999
+)

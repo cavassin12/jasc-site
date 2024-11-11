@@ -110,13 +110,11 @@ $d = array();
                     <div class="bigslam-page-title-overlay"></div>
                     <div class="bigslam-page-title-container bigslam-container">
                         <div class="bigslam-page-title-content bigslam-item-pdlr">
-                            <h1 class="bigslam-page-title">Notícias e Informativos</h1>
+                            <h1 class="bigslam-page-title">Notícias</h1>
                         </div>
                     </div>
                 </div>
                 <div class="bigslam-page-wrapper" id="bigslam-page-wrapper">
-
-
 
                     <div class="bigslam-content-container bigslam-container">
 
