@@ -84,7 +84,7 @@ foreach ($noticia as $ntt) {
                                                 <li class="menu-item menu-item-home bigslam-normal-menu"><a href="{{url("/")}}">Home</a></li>
 
                                                 <li class="menu-item current-menu-item bigslam-normal-menu"><a href="{{url("/noticias")}}">Notícias</a></li>
-                                                
+
                                                 <li class="bigslam-center-nav-menu-item">
                                                     <div class="bigslam-logo  bigslam-item-pdlr">
                                                         <div class="bigslam-logo-inner">
@@ -95,8 +95,8 @@ foreach ($noticia as $ntt) {
                                                 <li class="menu-item bigslam-normal-menu"><a href="{{url("/jogos")}}">Jogos</a></li>
                                                 <li class="menu-item menu-item-has-children bigslam-normal-menu"><a href="{{url("/classificacao")}}" class="sf-with-ul-pre">Ranking</a>
                                                 </li>
-<!--                                                <li class="menu-item menu-item-has-children bigslam-mega-menu"><a href="{{url("/contato")}}" class="sf-with-ul-pre">Contato</a>
-                                                </li>-->
+                                                <!--                                                <li class="menu-item menu-item-has-children bigslam-mega-menu"><a href="{{url("/contato")}}" class="sf-with-ul-pre">Contato</a>
+                                                                                                </li>-->
                                             </ul>
                                             <div class="bigslam-navigation-slide-bar bigslam-style-2" id="bigslam-navigation-slide-bar"></div>
                                         </div>
@@ -135,7 +135,7 @@ foreach ($noticia as $ntt) {
                                         <article id="post-1313" class="post-1313 post type-post status-publish format-standard has-post-thumbnail hentry category-blog tag-metal tag-mining tag-polymer">
                                             <div class="bigslam-single-article">
                                                 <div class="bigslam-single-article-content">
-                                                    <p>{{$d->texto}}</p>
+                                                    <p>{!!$d->texto!!}</p>
                                                 </div>	
                                             </div>
                                         </article>
@@ -183,28 +183,25 @@ foreach ($noticia as $ntt) {
                         </div>
                     </div>
                     <footer>
-<!--                        <div class="bigslam-footer-wrapper">
+                        <div class="bigslam-footer-wrapper">
                             <div class="bigslam-footer-container bigslam-container clearfix">
-                                <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">
+                                <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">&nbsp;</div>
+                                <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                                    <div id="text-11" class="widget widget_text bigslam-widget">
+                                        <img src="{{url('/upload/LogoSC.png');}}" width="200" height="60">
+                                    </div>
+                                </div>
+                                <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
                                     <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
-                                        <h3 class="bigslam-widget-title">Resources</h3>
                                         <div class="menu-main-navigation-container">
-                                            <ul id="menu-main-navigation-2" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-half">
-                                                <li class="menu-item menu-item-home current-menu-item page_item page-item-5067 current_page_item menu-item-5327"><a href="index-2.html" aria-current="page">Home</a></li>
-                                                <li class="menu-item"><a href="#">Schedule</a></li>
-                                                <li class="menu-item"><a href="#">Players</a></li>
-                                                <li class="menu-item"><a href="#">Our Team</a></li>
-                                                <li class="menu-item"><a href="#">SportsPress</a></li>
-                                                <li class="menu-item"><a href="#">Pages</a></li>
-                                                <li class="menu-item"><a href="#">Blog</a></li>
-                                                <li class="menu-item"><a href="#">Features</a></li>
-                                            </ul>
+                                            <img src="{{url('/upload/logo.png');}}" width="70" height="58">
+
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                        </div>-->
+                        </div>
                         <div class="bigslam-copyright-wrapper">
                             <div class="bigslam-copyright-container bigslam-container">
                                 <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>

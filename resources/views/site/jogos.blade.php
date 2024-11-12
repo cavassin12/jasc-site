@@ -140,6 +140,7 @@ $d = array();
                                                         @foreach($jogos as $j)
                                                         <div class="bigslam-sp-event-featured-list clearfix">
                                                             <div class="bigslam-sp-event-featured-title bigslam-title-font">
+                                                                <span class="bigslam-sp-event-result">{{$j->nm_modalidade}} </span>
                                                                 <span class="bigslam-sp-team-name">{{$j->cidade_a}}</span>
                                                                 <span class="bigslam-sp-event-result">
                                                                     <a href="#">VS</a></span>
@@ -148,6 +149,7 @@ $d = array();
                                                             </div>
                                                             
                                                             <div class="bigslam-sp-event-featured-info">
+                                                                <!--<span class="bigslam-sp-event-date"></span>--> 
                                                                 <span class="bigslam-sp-event-date">{{App\Models\Sistema::toDataHoraBR($j->data." ".substr($j->hora, 0, 5))}}</span>
                                                                 <span class="bigslam-sp-event-venue">
                                                                     <a href="" rel="tag">{{$j->local}}</a>
@@ -175,28 +177,25 @@ $d = array();
 
 
                     <footer>
-                        <!--                        <div class="bigslam-footer-wrapper">
-                                                                <div class="bigslam-footer-container bigslam-container clearfix">
-                                                                    <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">
-                                                                        <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
-                                                                            <h3 class="bigslam-widget-title">Resources</h3>
-                                                                            <div class="menu-main-navigation-container">
-                                                                                <ul id="menu-main-navigation-2" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-half">
-                                                                                    <li class="menu-item menu-item-home current-menu-item page_item page-item-5067 current_page_item menu-item-5327"><a href="index-2.html" aria-current="page">Home</a></li>
-                                                                                    <li class="menu-item"><a href="#">Schedule</a></li>
-                                                                                    <li class="menu-item"><a href="#">Players</a></li>
-                                                                                    <li class="menu-item"><a href="#">Our Team</a></li>
-                                                                                    <li class="menu-item"><a href="#">SportsPress</a></li>
-                                                                                    <li class="menu-item"><a href="#">Pages</a></li>
-                                                                                    <li class="menu-item"><a href="#">Blog</a></li>
-                                                                                    <li class="menu-item"><a href="#">Features</a></li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                    
-                                                                </div>
-                                                            </div>-->
+                        <div class="bigslam-footer-wrapper">
+                        <div class="bigslam-footer-container bigslam-container clearfix">
+                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">&nbsp;</div>
+                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                                <div id="text-11" class="widget widget_text bigslam-widget">
+                                    <img src="{{url('/upload/LogoSC.png');}}" width="200" height="60">
+                                </div>
+                            </div>
+                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                                <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
+                                    <div class="menu-main-navigation-container">
+                                        <img src="{{url('/upload/logo.png');}}" width="70" height="58">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                         <div class="bigslam-copyright-wrapper">
                             <div class="bigslam-copyright-container bigslam-container">
                                 <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>

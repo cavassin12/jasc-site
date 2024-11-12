@@ -16,6 +16,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/jogos', 'jogos');
     Route::get('/noticias', 'noticias');
     Route::get('/noticias/{chave}', 'noticiasbyid');
+    Route::get('/galeria/{chave}', 'galeriabyid');
     Route::get('/classificacao', 'classificacao');
     Route::get('/classificacao/{chave}', 'classificacaobyid');
 

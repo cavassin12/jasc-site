@@ -18,7 +18,7 @@ class AuthController extends Controller {
     }
 
     public function login() {
-        return view('auth/login');
+        return view('admin/login');
     }
 
     public function logar(Request $request): RedirectResponse {

@@ -25,7 +25,7 @@ class SiteModel extends Model {
 
     public function getAllNoticias() {
         $sql = "select n.codigo, n.titulo, n.dt_record, n.texto, "
-                . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as image "
+                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.png') as image "
                 . "from public.noticias n "
                 . "where n.status = '1' "
                 . "order by n.codigo desc "
@@ -35,7 +35,7 @@ class SiteModel extends Model {
 
     public function getNoticiaById(int $id) {
         $sql = "select n.*, "
-                . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as capa "
+                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.png') as capa "
                 . "from public.noticias n "
                 . "where n.codigo = ?";
         return DB::select($sql, [$id]);
@@ -57,15 +57,19 @@ class SiteModel extends Model {
     }
 
     public function getGalerias() {
-        $sql = "select * from public.galerias where status = '1' order by codigo desc limit 5";
+        $sql = "select g.*, "
+                . "coalesce((select link_img from public.galerias_imagens where galeria = g.codigo order by codigo asc limit 1), '/upload/ConcordiaJascBanner.png') as capa "
+                . "from public.galerias g "
+                . "where g.status = '1' order by g.codigo desc limit 5";
         return DB::select($sql);
     }
 
     public function getjogoDestaque() {
-        $sql = "select j.*, ca.descricao as cidade_a, cb.descricao as cidade_b "
+        $sql = "select j.*, ca.descricao as cidade_a, cb.descricao as cidade_b, m.descricao as nm_modalidade "
                 . "from public.jogos j "
                 . "inner join public.cidades ca on ca.codigo = j.cidade_a_codigo "
                 . "inner join public.cidades cb on cb.codigo = j.cidade_b_codigo "
+                . "inner join public.modalidades m on m.codigo = j.modalidade_codigo "
                 . "where j.destaque = '1' "
                 . "order by j.codigo desc limit 1";
         return DB::select($sql);
@@ -73,10 +77,11 @@ class SiteModel extends Model {
 
     public function getJogosByDate($data) {
 
-        $sql = "select j.*, ca.descricao as cidade_a, cb.descricao as cidade_b "
+        $sql = "select j.*, ca.descricao as cidade_a, cb.descricao as cidade_b, m.descricao as nm_modalidade "
                 . "from public.jogos j "
                 . "inner join public.cidades ca on ca.codigo = j.cidade_a_codigo "
                 . "inner join public.cidades cb on cb.codigo = j.cidade_b_codigo "
+                . "inner join public.modalidades m on m.codigo = j.modalidade_codigo "
                 . "where data = '{$data}' and j.status = '1' "
                 . "order by j.data asc, hora asc, codigo asc";
         return DB::select($sql);
@@ -95,4 +100,14 @@ class SiteModel extends Model {
         $sql = "select * from public.modalidades  order by descricao";
         return DB::select($sql);
     }
+    public function getGaleriaById(int $id) {
+        $sql = "select * from public.galerias where codigo = ? and status = '1'";
+        return DB::select($sql, [$id]);
+    }
+    public function getGaleriaImagesById(int $id) {
+        $sql = "select * from public.galerias_imagens where galeria = ?";
+        return DB::select($sql, [$id]);
+    }
+    
+    
 }

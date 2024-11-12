@@ -71,8 +71,10 @@ create table public.galerias(
 	status bit not null default '0'
 );
 
+drop table public.galerias_imagens;
 create table public.galerias_imagens(
 	codigo bigserial not null primary key,
+	galeria bigint not null references public.galerias(codigo),
 	link_img character varying
 );
 

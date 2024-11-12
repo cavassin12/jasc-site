@@ -27,7 +27,7 @@ class SiteController extends Controller {
         return view('site/home', ["banners" => $this->sm->getBanners(),
             "noticias" => $this->sm->getUltimasNoticias(), 
             "jogodest" => $this->sm->getjogoDestaque(),
-            "galerias" =>  array()//$this->sm->getGalerias()
+            "galerias" =>  $this->sm->getGalerias()
         ]);
     }
 
@@ -48,6 +48,15 @@ class SiteController extends Controller {
         return view('site/noticiabyid', [
             "noticia" => $this->sm->getNoticiaById($id),
             "outrasnt" => $this->sm->getOutrasNoticiasExcetoId($id)
+        ]);
+    }
+    public function galeriabyid(Request $request, String $chave): View {
+        $this->sm = new SiteModel();
+        $id = intval(base64_decode($chave));
+        return view('site/galeria', [
+            "dados" => $this->sm->getGaleriaById($id),
+            "image" => $this->sm->getGaleriaImagesById($id),
+            
         ]);
     }
 

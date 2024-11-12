@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <title>JASC - Concórdia</title>
 
@@ -168,12 +168,18 @@
                                                                         <span class="bigslam-sp-team-name" style="font-weight: 400  !important;letter-spacing: 0px  !important;text-transform: none  !important;margin-top: 30px  !important;">{{$jd->cidade_b}}</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">{{App\Models\Sistema::toDataHoraBR($jd->data." ".substr($jd->hora, 0, 5))}}</span>
+                                                                <div class="bigslam-sp-event-featured-info">
+                                                                    <span style="font-size: 20px;">{{$jd->nm_modalidade}}</span>
+                                                                </div>
+                                                                <div class="bigslam-sp-event-featured-info">
+                                                                    <span class="bigslam-sp-event-date">{{App\Models\Sistema::toDataHoraBR($jd->data." ".substr($jd->hora, 0, 5))}}</span>
                                                                     <span class="bigslam-sp-event-venue"><a href="#" rel="tag">{{$jd->local}}</a></span>
                                                                 </div>
+                                                                @if($jd->link_transmissao != "")
                                                                 <div class="bigslam-sp-event-featured-link">
-                                                                    <a class="gdlr-core-button gdlr-core-rectangle  seocrawler-solid" href="{{url('jogo/'.base64_encode($jd->codigo))}}" style="border-radius: 36px;-moz-border-radius: 36px;-webkit-border-radius: 36px;">Ver</a>
+                                                                    <a class="gdlr-core-button gdlr-core-rectangle  seocrawler-solid" href="{{$jd->link_transmissao}}" style="border-radius: 36px;-moz-border-radius: 36px;-webkit-border-radius: 36px;">Ver</a>
                                                                 </div>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -249,7 +255,7 @@
                                                                 <div class="gdlr-core-item-list gdlr-core-blog-full  gdlr-core-item-pdlr gdlr-core-style-left">
                                                                     <div class="gdlr-core-blog-thumbnail gdlr-core-media-image  gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
                                                                         <a href="{{url('noticias/'.base64_encode($n->codigo))}}">
-                                                                            <img src="<?= asset($n->image); ?>" alt="">
+                                                                            <img src="<?= asset($n->image); ?>" alt="" style="max-width: ">
                                                                         </a>
                                                                     </div>
                                                                     <div class="gdlr-core-blog-date-wrapper gdlr-core-skin-divider">
@@ -279,137 +285,7 @@
                             </div>
                         </div>
                         @endif
-                        <!--                        <div class="gdlr-core-pbf-wrapper " style="padding: 100px 0px 80px 0px;">
-                                                        <div class="gdlr-core-pbf-background-wrap">
-                                                            <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" style="background-image: url(upload/bg-Latest-hp2.jpg) ;background-size: cover ;background-position: center ;" data-parallax-speed="0.1"></div>
-                                                        </div>
-                                                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                                                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                                                <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first" id="gdlr-core-column-85605">
-                                                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js " style="padding: 0px 0px 60px 0px;">
-                                                                        <div class="gdlr-core-pbf-background-wrap"></div>
-                                                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                                            <div class="gdlr-core-pbf-element">
-                                                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px ;">
-                                                                                    <div class="gdlr-core-title-item-title-wrap ">
-                                                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 32px ;font-weight: 600 ;letter-spacing: 0px ;text-transform: none ;color: #ffffff ;">Fixtures & Results<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h3></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="gdlr-core-pbf-element">
-                                                                                <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align" style="margin-bottom: 0px ;">
-                                                                                    <div class="gdlr-core-divider-container" style="max-width: 32px ;">
-                                                                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #e31b23 ;border-width: 5px;"></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="gdlr-core-pbf-column gdlr-core-column-40 gdlr-core-column-first" id="gdlr-core-column-1212">
-                                                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
-                                                                        <div class="gdlr-core-pbf-background-wrap"></div>
-                                                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                                            <div class="gdlr-core-pbf-element">
-                                                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align gdlr-core-no-p-space" style="padding-bottom: 0px ;">
-                                                                                    <div class="gdlr-core-text-box-item-content" style="text-transform: none ;">
-                                                                                        <div class="sportspress sp-widget-align-none">
-                                                                                            <div class="sp-template sp-template-event-list">
-                                                                                                <div class="bigslam-sp-event-featured-holder clearfix">
-                                                                                                    <div class="bigslam-sp-event-featured-top bigslam-status-vs">
-                                                                                                        <div class="bigslam-sp-event-featured-title bigslam-title-font clearfix">
-                                                                                                            <div class="bigslam-sp-event-featured-title-left"><span class="bigslam-sp-team-logo"><img width="90" height="89" src="upload/flag-15.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Real Soccer</span></div><span class="bigslam-sp-event-result"><a href="#">VS</a></span>
-                                                                                                            <div class="bigslam-sp-event-featured-title-right"><span class="bigslam-sp-team-logo"><img width="105" height="120" src="upload/flag-13.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Valencia</span></div>
-                                                                                                        </div>
-                                                                                                        <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">August 13, 2020</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">Santiago Bernabéu Stadium</a></span></div>
-                                                                                                    </div>
-                                                                                                    <div class="bigslam-sp-event-featured-list clearfix">
-                                                                                                        <div class="bigslam-sp-event-featured-title bigslam-title-font"><span class="bigslam-sp-team-logo"><img width="110" height="119" src="upload/flag-4.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Juventus</span><span class="bigslam-sp-event-result"><a href="#">VS</a></span><span class="bigslam-sp-team-name">Real Soccer</span><span class="bigslam-sp-team-logo"><img width="90" height="89" src="upload/flag-15.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span></div>
-                                                                                                        <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">August 15, 2020</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">Allianz Stadium</a></span><a class="bigslam-sp-event-link" href="#">Preview<i class="fa fa-long-arrow-right"></i></a></div>
-                                                                                                    </div>
-                                                                                                    <div class="bigslam-sp-event-featured-list clearfix">
-                                                                                                        <div class="bigslam-sp-event-featured-title bigslam-title-font"><span class="bigslam-sp-team-logo"><img width="110" height="119" src="upload/flag-4.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Juventus</span><span class="bigslam-sp-event-result"><a href="#">VS</a></span><span class="bigslam-sp-team-name">Barcelona</span><span class="bigslam-sp-team-logo"><img width="123" height="141" src="upload/flag-19.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span></div>
-                                                                                                        <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">August 20, 2020</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">Allianz Stadium</a></span><a class="bigslam-sp-event-link" href="#">Preview<i class="fa fa-long-arrow-right"></i></a></div>
-                                                                                                    </div>
-                                                                                                    <div class="bigslam-sp-event-featured-list clearfix">
-                                                                                                        <div class="bigslam-sp-event-featured-title bigslam-title-font"><span class="bigslam-sp-team-logo"><img width="90" height="128" src="upload/flag-16.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">spurs</span><span class="bigslam-sp-event-result"><a href="#">VS</a></span><span class="bigslam-sp-team-name">Valencia</span><span class="bigslam-sp-team-logo"><img width="105" height="120" src="upload/flag-13.png" class="attachment-sportspress-fit-medium size-sportspress-fit-medium wp-post-image" alt="" ></span></div>
-                                                                                                        <div class="bigslam-sp-event-featured-info"><span class="bigslam-sp-event-date">August 22, 2020</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">spurs stadium</a></span><a class="bigslam-sp-event-link" href="#">Preview<i class="fa fa-long-arrow-right"></i></a></div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="gdlr-core-pbf-element">
-                                                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align" style="margin-top: -37px ;"><a class="gdlr-core-button  gdlr-core-button-gradient gdlr-core-button-no-border gdlr-core-button-full-width" href="#" style="font-size: 15px ;font-weight: 600 ;letter-spacing: 0px ;color: #ffffff ;padding: 14px 33px 17px 33px;text-transform: none ;border-radius: 0px;-moz-border-radius: 0px;-webkit-border-radius: 0px;background: #e31b23 ;"><i class="gdlr-core-pos-left fa fa-eye" style="font-size: 17px ;"></i><span class="gdlr-core-content">View Schedule</span></a></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="gdlr-core-pbf-column gdlr-core-column-20">
-                                                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
-                                                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                                                            <div class="gdlr-core-pbf-element">
-                                                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align gdlr-core-no-p-space" style="padding-bottom: 0px ;">
-                                                                                    <div class="gdlr-core-text-box-item-content" style="text-transform: none ;">
-                                                                                        <div class="sportspress sp-widget-align-none">
-                                                                                            <div class="sp-template sp-template-event-list">
-                                                                                                <h4 class="sp-table-caption">Latest Results</h4>
-                                                                                                <div class="bigslam-sp-event-widget-holder clearfix">
-                                                                                                    <div class="bigslam-sp-event-widget-list">
-                                                                                                        <div class="bigslam-sp-event-widget-title bigslam-title-font clearfix">
-                                                                                                            <div class="bigslam-sp-event-widget-title-left"><span class="bigslam-sp-team-logo"><img width="26" height="32" src="upload/flag-12-26x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Man.Utd</span></div><span class="bigslam-sp-event-result"><a href="#">0<span class="bigslam-sp-event-result-sep"> - </span>1</a>
-                                                                                                            </span>
-                                                                                                            <div class="bigslam-sp-event-widget-title-right"><span class="bigslam-sp-team-logo"><img width="30" height="32" src="upload/flag-4-30x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Juventus</span></div>
-                                                                                                        </div>
-                                                                                                        <div class="bigslam-sp-event-widget-info"><span class="bigslam-sp-event-date">August 1, 2019</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">Allianz Stadium</a></span></div>
-                                                                                                    </div>
-                                                                                                    <div class="bigslam-sp-event-widget-list">
-                                                                                                        <div class="bigslam-sp-event-widget-title bigslam-title-font clearfix">
-                                                                                                            <div class="bigslam-sp-event-widget-title-left"><span class="bigslam-sp-team-logo"><img width="28" height="32" src="upload/flag-19-28x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Barcelona</span></div><span class="bigslam-sp-event-result"><a href="#">2<span class="bigslam-sp-event-result-sep"> - </span>1</a>
-                                                                                                            </span>
-                                                                                                            <div class="bigslam-sp-event-widget-title-right"><span class="bigslam-sp-team-logo"><img width="30" height="32" src="upload/flag-14-30x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Liverpool</span></div>
-                                                                                                        </div>
-                                                                                                        <div class="bigslam-sp-event-widget-info"><span class="bigslam-sp-event-date">August 2, 2019</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">Camp Nou</a></span></div>
-                                                                                                    </div>
-                                                                                                    <div class="bigslam-sp-event-widget-list">
-                                                                                                        <div class="bigslam-sp-event-widget-title bigslam-title-font clearfix">
-                                                                                                            <div class="bigslam-sp-event-widget-title-left"><span class="bigslam-sp-team-logo"><img width="28" height="32" src="upload/flag-13-28x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Valencia</span></div><span class="bigslam-sp-event-result"><a href="#">2<span class="bigslam-sp-event-result-sep"> - </span>0</a>
-                                                                                                            </span>
-                                                                                                            <div class="bigslam-sp-event-widget-title-right"><span class="bigslam-sp-team-logo"><img width="26" height="32" src="upload/flag-2-26x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Sevilla</span></div>
-                                                                                                        </div>
-                                                                                                        <div class="bigslam-sp-event-widget-info"><span class="bigslam-sp-event-date">August 5, 2019</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">Mestalla Stadium</a></span></div>
-                                                                                                    </div>
-                                                                                                    <div class="bigslam-sp-event-widget-list">
-                                                                                                        <div class="bigslam-sp-event-widget-title bigslam-title-font clearfix">
-                                                                                                            <div class="bigslam-sp-event-widget-title-left"><span class="bigslam-sp-team-logo"><img width="32" height="28" src="upload/flag-20-32x28.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Napoli</span></div><span class="bigslam-sp-event-result"><a href="#">2<span class="bigslam-sp-event-result-sep"> - </span>0</a>
-                                                                                                            </span>
-                                                                                                            <div class="bigslam-sp-event-widget-title-right"><span class="bigslam-sp-team-logo"><img width="30" height="32" src="upload/flag-4-30x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Juventus</span></div>
-                                                                                                        </div>
-                                                                                                        <div class="bigslam-sp-event-widget-info"><span class="bigslam-sp-event-date">August 7, 2019</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">San Paolo Stadium</a></span></div>
-                                                                                                    </div>
-                                                                                                    <div class="bigslam-sp-event-widget-list">
-                                                                                                        <div class="bigslam-sp-event-widget-title bigslam-title-font clearfix">
-                                                                                                            <div class="bigslam-sp-event-widget-title-left"><span class="bigslam-sp-team-logo"><img width="32" height="32" src="upload/flag-15-32x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Real Soccer</span></div><span class="bigslam-sp-event-result"><a href="#">VS</a></span>
-                                                                                                            <div class="bigslam-sp-event-widget-title-right"><span class="bigslam-sp-team-logo"><img width="28" height="32" src="upload/flag-13-28x32.png" class="attachment-sportspress-fit-mini size-sportspress-fit-mini wp-post-image" alt="" ></span><span class="bigslam-sp-team-name">Valencia</span></div>
-                                                                                                        </div>
-                                                                                                        <div class="bigslam-sp-event-widget-info"><span class="bigslam-sp-event-date">August 13, 2020</span><span class="bigslam-sp-event-venue"><a href="#" rel="tag">Santiago Bernabéu Stadium</a></span></div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="gdlr-core-pbf-element">
-                                                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align"><a class="gdlr-core-button  gdlr-core-button-transparent gdlr-core-button-no-border" href="#" id="gdlr-core-button-id-26835"><span class="gdlr-core-content">View All Results</span><i class="gdlr-core-pos-right fa fa-long-arrow-right"></i></a></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>-->
+                        
 
                         @if(count($galerias)>0)
                         <div class="gdlr-core-pbf-wrapper " style="padding: 80px 0px 50px 0px;">
@@ -456,12 +332,12 @@
                                                                     <div class="gdlr-core-product-grid-3 gdlr-core-item-mgb  gdlr-core-button-style-border gdlr-core-move-up-with-shadow gdlr-core-outer-frame-element">
                                                                         <div class="gdlr-core-product-thumbnail gdlr-core-media-image  gdlr-core-zoom-on-hover">
                                                                             <a href="#">
-                                                                                <img src="upload/photo-1552066344-c9babee39cd0-600x647.jpg" alt="" width="600" height="647" title="photo-1552066344-c9babee39cd0"></a>
+                                                                                <img src="{{url('upload/galeria/'.$g->codigo.'/'.$g->capa)}}" alt="" width="600" height="647" title=""></a>
                                                                         </div>
                                                                         <div class="gdlr-core-product-grid-content gdlr-core-skin-e-background">
                                                                             <div class="gdlr-core-product-grid-info clearfix">
                                                                                 <div class="gdlr-core-product-price gdlr-core-title-font">
-                                                                                    <span class="woocommerce-Price-amount amount">{{$g->data}}</span>
+                                                                                    <span class="woocommerce-Price-amount amount">{{App\Models\Sistema::toDataBR($g->data)}}</span>
                                                                                 </div>
                                                                             </div>
                                                                             <h3 class="gdlr-core-product-title gdlr-core-skin-title" style="font-size: 16px ;font-weight: 500 ;letter-spacing: 0px ;">
@@ -492,15 +368,16 @@
                 <footer>
                     <div class="bigslam-footer-wrapper">
                         <div class="bigslam-footer-container bigslam-container clearfix">
-                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">
+                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">&nbsp;</div>
+                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
                                 <div id="text-11" class="widget widget_text bigslam-widget">
-                                    <img src="{{url('/upload/LogoSC.png');}}" width="250" height="65">
+                                    <img src="{{url('/upload/LogoSC.png');}}" width="200" height="60">
                                 </div>
                             </div>
-                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">
+                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
                                 <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
                                     <div class="menu-main-navigation-container">
-                                        <img src="{{url('/upload/logo.png');}}" width="90" height="85">
+                                        <img src="{{url('/upload/logo.png');}}" width="70" height="58">
 
                                     </div>
                                 </div>
@@ -511,6 +388,8 @@
                     <div class="bigslam-copyright-wrapper">
                         <div class="bigslam-copyright-container bigslam-container">
                             <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>
+                            <div class="bigslam-copyright-text bigslam-item-pdlr" style="font-size: 12px">* Este site ainda está passando por melhorias</div>
+                            
                         </div>
                     </div>
                 </footer>

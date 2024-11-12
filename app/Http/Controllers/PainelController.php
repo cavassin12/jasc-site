@@ -2,43 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminModel;
+use App\Models\AuthUser;
+use App\Models\SiteModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\SiteModel;
 use function view;
 
 class PainelController extends Controller {
 
-    private SiteModel $sm;
+    private AdminModel $sm;
     public function __construct() {
-        $this->sm = new SiteModel();
+        $this->sm = new AdminModel();
     }
    
-    public function logar(Request $request): RedirectResponse {
-        $authUser = new AuthUser();
-        return $authUser->logar($request);
-    }
-  
-    public function home():View {
-        $this->sm = new SiteModel();
+    public function geral():View {
+        $this->sm = new AdminModel();
         
-        return view('site/home', ["banners"=> $this->sm->getBanners(), 
-            "noticias"=>$this->sm->getUltimasNoticias(), 
-            "jogodest"=> $this->sm->getjogoDestaque(),
-            "galerias"=>$this->sm->getGalerias()]);
+        return view('admin/geral');
     }
     public function noticias():View {
         $this->sm = new SiteModel();
         return view('site/home', ["banners"=> $this->sm->getBanners(), "noticias"=>$this->sm->getUltimasNoticias()]);
-    }
-    public function noticiasbyid(Request $request, String $chave):View {
-        $this->sm = new SiteModel();
-        $id = intval(base64_decode($chave));
-        return view('site/noticiabyid', [
-            "noticia"=>$this->sm->getNoticiaById($id), 
-            "outrasnt"=>$this->sm->getOutrasNoticiasExcetoId($id)
-                ]);
     }
     
 }
