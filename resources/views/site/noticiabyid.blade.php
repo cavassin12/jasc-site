@@ -153,7 +153,7 @@ foreach ($noticia as $ntt) {
                                             <div class="gdlr-core-recent-post-widget clearfix">
                                                 <div class="gdlr-core-recent-post-widget-thumbnail gdlr-core-media-image">
                                                     <a href="{{url('noticias/'.base64_encode($on->codigo))}}">
-                                                        <img src="{{$on->capa}}" alt="" width="150" height="150" title="shutterstock_706586722">
+                                                        <img src="{{url($on->capa)}}" alt="" width="150" height="150" title="shutterstock_706586722">
                                                     </a>
                                                 </div>
                                                 <div class="gdlr-core-recent-post-widget-content">

@@ -25,9 +25,9 @@ class SiteController extends Controller {
         $this->sm = new SiteModel();
 
         return view('site/home', ["banners" => $this->sm->getBanners(),
-            "noticias" => array(), //$this->sm->getUltimasNoticias(), 
-            "jogodest" => array(), //$this->sm->getjogoDestaque(),
-            "galerias" => array(), //$this->sm->getGalerias()
+            "noticias" => $this->sm->getUltimasNoticias(), 
+            "jogodest" => $this->sm->getjogoDestaque(),
+            "galerias" =>  array()//$this->sm->getGalerias()
         ]);
     }
 
@@ -55,6 +55,7 @@ class SiteController extends Controller {
         $this->sm = new SiteModel();
         $id = $request->mod ?? 0;
         return view('site/classificacao', [
+            "jogodest" => $this->sm->getjogoDestaque(),
             "modalidades" => $this->sm->getAllModalidades(),
             "classi" => $this->sm->getClassificacoesByModalidade($id)
         ]);

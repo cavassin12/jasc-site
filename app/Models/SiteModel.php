@@ -14,7 +14,8 @@ class SiteModel extends Model {
     use HasFactory;
 
     public function getUltimasNoticias() {
-        $sql = "select n.codigo, n.titulo, (select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as image "
+        $sql = "select n.codigo, n.titulo, n.dt_record, n.texto,  "
+                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.png') as image "
                 . "from public.noticias n "
                 . "where n.status = '1' "
                 . "order by n.codigo desc "
@@ -41,8 +42,8 @@ class SiteModel extends Model {
     }
 
     public function getOutrasNoticiasExcetoId(int $id) {
-        $sql = "select n.*,"
-                . "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as capa "
+        $sql = "select n.*, '/upload/ConcordiaJascBanner.png' as capa "
+                //. "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as capa "
                 . "from public.noticias n "
                 . "where n.status = '1' "
                 . "and n.codigo <> ? "
