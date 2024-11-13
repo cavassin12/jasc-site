@@ -143,7 +143,7 @@ $d = array();
                                                                 <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 30px ;font-weight: 800 ;letter-spacing: 0px ;">
                                                                     <a href="{{url('noticias/'.base64_encode($n->codigo))}}">{{$n->titulo}}</a></h3>
 
-                                                                <div class="gdlr-core-blog-content clearfix">{{substr($n->texto, 0, 50)}}...
+                                                                <div class="gdlr-core-blog-content clearfix">{{substr(strip_tags($n->texto), 0, 80)}}...
                                                                     <div class="clear">
                                                                     </div>
                                                                     <a class="gdlr-core-excerpt-read-more gdlr-core-button gdlr-core-rectangle" href="{{url('noticias/'.base64_encode($n->codigo))}}">Veja Mais</a></div>

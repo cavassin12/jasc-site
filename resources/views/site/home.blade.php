@@ -195,7 +195,7 @@
                         @if(count($noticias)>0)
                         <div class="gdlr-core-pbf-wrapper " style="padding: 80px 0px 50px 0px;">
                             <div class="gdlr-core-pbf-background-wrap" style="background-color: #f7f7f7 ;">
-                                <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" style="background-image: url(upload/bg-shop.jpg) ;background-repeat: no-repeat ;background-position: center ;" data-parallax-speed="0.05"></div>
+                                <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" data-parallax-speed="0.05"></div>
                             </div>
                             <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
                                 <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
@@ -255,7 +255,7 @@
                                                                 <div class="gdlr-core-item-list gdlr-core-blog-full  gdlr-core-item-pdlr gdlr-core-style-left">
                                                                     <div class="gdlr-core-blog-thumbnail gdlr-core-media-image  gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
                                                                         <a href="{{url('noticias/'.base64_encode($n->codigo))}}">
-                                                                            <img src="<?= asset($n->image); ?>" alt="" style="max-width: ">
+                                                                            <img src="<?= url($n->image); ?>" alt="" style="max-width: ">
                                                                         </a>
                                                                     </div>
                                                                     <div class="gdlr-core-blog-date-wrapper gdlr-core-skin-divider">
@@ -267,7 +267,7 @@
                                                                         <h3 class="gdlr-core-blog-title gdlr-core-skin-title" style="font-size: 30px ;font-weight: 800 ;letter-spacing: 0px ;">
                                                                             <a href="{{url('noticias/'.base64_encode($n->codigo))}}">{{$n->titulo}}</a></h3>
 
-                                                                        <div class="gdlr-core-blog-content clearfix">{{substr($n->texto, 0, 50)}}...
+                                                                        <div class="gdlr-core-blog-content clearfix">{{substr(strip_tags($n->texto), 0, 80)}}...
                                                                             <div class="clear">
                                                                             </div>
                                                                             <a class="gdlr-core-excerpt-read-more gdlr-core-button gdlr-core-rectangle" href="{{url('noticias/'.base64_encode($n->codigo))}}">Veja Mais</a></div>

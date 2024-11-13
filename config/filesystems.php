@@ -57,6 +57,10 @@ return [
             'throw' => false,
         ],
 
+        'galerias' => [
+            'driver' => 'local',
+            'root' => base_path()."/../upload/galeria/"
+        ]
     ],
 
     /*

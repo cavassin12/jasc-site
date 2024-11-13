@@ -15,7 +15,7 @@ class SiteModel extends Model {
 
     public function getUltimasNoticias() {
         $sql = "select n.codigo, n.titulo, n.dt_record, n.texto,  "
-                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.png') as image "
+                . "coalesce((select g.imagem from public.noticias_images g where g.noticia_codigo = n.codigo and g.status = '1' order by g.codigo asc limit 1), '/upload/ConcordiaJascBanner.jpg') as image "
                 . "from public.noticias n "
                 . "where n.status = '1' "
                 . "order by n.codigo desc "
@@ -25,7 +25,7 @@ class SiteModel extends Model {
 
     public function getAllNoticias() {
         $sql = "select n.codigo, n.titulo, n.dt_record, n.texto, "
-                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.png') as image "
+                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.jpg') as image "
                 . "from public.noticias n "
                 . "where n.status = '1' "
                 . "order by n.codigo desc "
@@ -35,7 +35,7 @@ class SiteModel extends Model {
 
     public function getNoticiaById(int $id) {
         $sql = "select n.*, "
-                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.png') as capa "
+                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.jpg') as capa "
                 . "from public.noticias n "
                 . "where n.codigo = ?";
         return DB::select($sql, [$id]);
@@ -58,7 +58,7 @@ class SiteModel extends Model {
 
     public function getGalerias() {
         $sql = "select g.*, "
-                . "coalesce((select link_img from public.galerias_imagens where galeria = g.codigo order by codigo asc limit 1), '/upload/ConcordiaJascBanner.png') as capa "
+                . "coalesce((select link_img from public.galerias_imagens where galeria = g.codigo order by codigo asc limit 1), '/upload/ConcordiaJascBanner.jpg') as capa "
                 . "from public.galerias g "
                 . "where g.status = '1' order by g.codigo desc limit 5";
         return DB::select($sql);

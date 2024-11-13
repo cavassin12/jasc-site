@@ -36,6 +36,16 @@ Route::controller(PainelController::class)->group(function () {
     Route::get('/painel/', 'geral');
     Route::get('/painel/geral', 'geral');
     Route::get('/painel/noticias', 'noticias');
-    Route::get('/painel/noticias/{chave}', 'noticiasbyid');
+    Route::get('/painel/noticias/nova', 'novanoticia');
+    Route::put('/painel/noticias/nova', 'salvarnoticia');
+    Route::get('/painel/noticias/editar/{chave}', 'editarnoticia');
+    Route::get('/painel/noticias/imagens/{chave}', 'imagensnoticia');
+    Route::get('/painel/noticias/imagens/desativar/{chave}', 'desativarimagem');
+    Route::put('/painel/noticias/imagens/add', 'salvarimagem');
+    Route::get('/painel/noticias/desativar/{chave}', 'desativarnoticia');
     Route::get('/painel/jogos', 'jogos');
+    Route::get('/painel/jogos/novo', 'novojogo');
+    Route::get('/painel/jogos/destaque/{chave}', 'destacarjogo');
+    Route::get('/painel/jogos/desativar/{chave}', 'desativarjogo');
+    Route::put('/painel/jogos/novosalvar', 'salvarjogo');
 });
