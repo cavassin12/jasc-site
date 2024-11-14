@@ -1,7 +1,17 @@
 @extends('admin/master')
 @section('content')
+<br>
 <div class="row">
-    <h2>Jogos</h2>
+    <div class="col-md-10">
+       <h2>Jogos</h2>
+    </div>
+    <div class="col-md-2">
+        <a href="{{url('/painel/jogos/novo')}}" class="btn btn-info">Novo</a>
+    </div>
+</div>
+<hr>
+<div class="row">
+    
     <div class="col-md-12">
         <table class="table table-sm">
             <thead>
@@ -21,7 +31,7 @@
                         <td>{{$i->cidade_b}}</td>
                         <td>{{App\Models\Sistema::toDataHoraBR($i->data." ".$i->hora)}}</td>
                         <td>
-                            <a href="{{url('/painel/noticias/editar/'.base64_encode($i->codigo)."")}}"><i class="fa fa-pencil"></i> Editar</a>
+                            <a href="{{url('/painel/jogos/editar/'.base64_encode($i->codigo)."")}}"><i class="fa fa-pencil"></i> Editar</a>
                             &nbsp;
                             &nbsp;
                             <a href="{{url('/painel/jogos/destaque/'.base64_encode($i->codigo)."")}}"><i class="fa fa-pencil"></i> Destacar</a>

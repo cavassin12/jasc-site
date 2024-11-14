@@ -15,7 +15,7 @@ class SiteModel extends Model {
 
     public function getUltimasNoticias() {
         $sql = "select n.codigo, n.titulo, n.dt_record, n.texto,  "
-                . "coalesce((select g.imagem from public.noticias_images g where g.noticia_codigo = n.codigo and g.status = '1' order by g.codigo asc limit 1), '/upload/ConcordiaJascBanner.jpg') as image "
+                . "coalesce((select concat('galeria/', noticia_codigo, '/', g.imagem) as imagem from public.noticias_images g where g.noticia_codigo = n.codigo and g.status = '1' order by g.codigo asc limit 1), 'galeria/ConcordiaJascBanner.jpg') as image "
                 . "from public.noticias n "
                 . "where n.status = '1' "
                 . "order by n.codigo desc "
@@ -25,7 +25,7 @@ class SiteModel extends Model {
 
     public function getAllNoticias() {
         $sql = "select n.codigo, n.titulo, n.dt_record, n.texto, "
-                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.jpg') as image "
+                . "coalesce((select concat('galeria/', noticia_codigo, '/', imagem) as imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), 'galeria/ConcordiaJascBanner.jpg') as image "
                 . "from public.noticias n "
                 . "where n.status = '1' "
                 . "order by n.codigo desc "
@@ -35,14 +35,20 @@ class SiteModel extends Model {
 
     public function getNoticiaById(int $id) {
         $sql = "select n.*, "
-                . "coalesce((select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), '/upload/ConcordiaJascBanner.jpg') as capa "
+                . "coalesce((select concat('galeria/', noticia_codigo, '/', imagem) as imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1), 'galeria/ConcordiaJascBanner.jpg') as capa "
                 . "from public.noticias n "
                 . "where n.codigo = ?";
         return DB::select($sql, [$id]);
     }
+    public function getNoticiaImagesById(int $id) {
+        $sql = "select n.*, concat('galeria/', n.noticia_codigo, '/', n.imagem) as ds_imagem  "
+                . "from public.noticias_images n "
+                . "where n.noticia_codigo = ? and n.status = '1'";
+        return DB::select($sql, [$id]);
+    }
 
     public function getOutrasNoticiasExcetoId(int $id) {
-        $sql = "select n.*, '/upload/ConcordiaJascBanner.png' as capa "
+        $sql = "select n.*, '/upload/galeria/ConcordiaJascBanner.jpg' as capa "
                 //. "(select imagem from public.noticias_images where noticia_codigo = n.codigo and status = '1' order by codigo asc limit 1) as capa "
                 . "from public.noticias n "
                 . "where n.status = '1' "
@@ -58,7 +64,7 @@ class SiteModel extends Model {
 
     public function getGalerias() {
         $sql = "select g.*, "
-                . "coalesce((select link_img from public.galerias_imagens where galeria = g.codigo order by codigo asc limit 1), '/upload/ConcordiaJascBanner.jpg') as capa "
+                . "coalesce((select concat(gi.galeria, '/', gi.link_img) as link from public.galerias_imagens gi where gi.galeria = g.codigo order by gi.codigo asc limit 1), '/upload/galeria/ConcordiaJascBanner.jpg') as capa "
                 . "from public.galerias g "
                 . "where g.status = '1' order by g.codigo desc limit 5";
         return DB::select($sql);

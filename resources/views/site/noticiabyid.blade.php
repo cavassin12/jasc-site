@@ -107,7 +107,7 @@ foreach ($noticia as $ntt) {
                     </header>
                 </div>
                 <div class="bigslam-page-wrapper" id="bigslam-page-wrapper">
-                    <div class="bigslam-blog-title-wrap  bigslam-style-custom bigslam-feature-image" style="background-image: url('../upload/ConcordiaJascBanner.png') ;">
+                    <div class="bigslam-blog-title-wrap  bigslam-style-custom bigslam-feature-image" style="background-image: url('../upload/ConcordiaJascBanner.jpg') ;">
                         <div class="bigslam-header-transparent-substitute" style="height: 165.297px;"></div>
                         <div class="bigslam-blog-title-top-overlay"></div>
                         <div class="bigslam-blog-title-overlay"></div>
@@ -139,6 +139,26 @@ foreach ($noticia as $ntt) {
                                                 </div>	
                                             </div>
                                         </article>
+                                        @if(count($images)>0)
+                                        <article id="post-1313" class="post-1313 post type-post status-publish format-standard has-post-thumbnail hentry category-blog tag-metal tag-mining tag-polymer">
+
+                                            <h3>Imagens</h3>
+                                            <hr>
+                                            <div id='sp-player-gallery-63' class='gallery galleryid-63 gallery-columns-3 gallery-size-sportspress-crop-medium'>	
+                                            <div class="sp-template sp-template-player-gallery sp-template-gallery">
+                                                <div class="sp-player-gallery-wrapper sp-gallery-wrapper">
+                                                    @foreach($images as $i)
+                                                    <dl class="gallery-item">
+                                                        <dt class="gallery-icon portrait">
+                                                            <img src="{{url('upload/'.$i->ds_imagem)}}" style="width: 300px;" class="attachment-sportspress-crop-medium size-sportspress-crop-medium wp-post-image" alt="">
+                                                        </dt>
+                                                    </dl>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </article>
+                                        @endif
                                     </div>
                                     <div class="bigslam-page-builder-wrap bigslam-item-rvpdlr"></div>
 

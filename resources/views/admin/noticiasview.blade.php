@@ -1,7 +1,17 @@
 @extends('admin/master')
 @section('content')
+<br>
 <div class="row">
-    <h2>Notícias</h2>
+    <div class="col-md-10">
+       <h2>Notícias</h2>
+    </div>
+    <div class="col-md-2">
+        <a href="{{url('/painel/noticias/nova')}}" class="btn btn-info">Novo</a>
+    </div>
+</div>
+<hr>
+<div class="row">
+    
     <div class="col-md-12">
         <table class="table table-sm">
             <thead>

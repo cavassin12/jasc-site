@@ -47,6 +47,7 @@ class SiteController extends Controller {
         $id = intval(base64_decode($chave));
         return view('site/noticiabyid', [
             "noticia" => $this->sm->getNoticiaById($id),
+            "images" => $this->sm->getNoticiaImagesById($id),
             "outrasnt" => $this->sm->getOutrasNoticiasExcetoId($id)
         ]);
     }

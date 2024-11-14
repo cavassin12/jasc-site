@@ -105,7 +105,7 @@ $d = array();
                     </header>
                 </div>
 
-                <div class="bigslam-page-title-wrap  bigslam-style-medium bigslam-center-align">
+                <div class="bigslam-page-title-wrap  bigslam-style-medium bigslam-center-align" >
                     <div class="bigslam-header-transparent-substitute" style="height: 165.297px;"></div>
                     <div class="bigslam-page-title-overlay"></div>
                     <div class="bigslam-page-title-container bigslam-container">
@@ -114,7 +114,7 @@ $d = array();
                         </div>
                     </div>
                 </div>
-                <div class="bigslam-page-wrapper" id="bigslam-page-wrapper">
+                <div class="bigslam-page-wrapper" id="bigslam-page-wrapper" >
 
                     <div class="bigslam-content-container bigslam-container">
 
@@ -129,9 +129,9 @@ $d = array();
 
                                                         @foreach($noticias as $n)
                                                         <div class="gdlr-core-item-list gdlr-core-blog-full  gdlr-core-item-pdlr gdlr-core-style-left">
-                                                            <div class="gdlr-core-blog-thumbnail gdlr-core-media-image  gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
+                                                            <div class="gdlr-core-blog-thumbnail gdlr-core-media-image gdlr-core-zoom-on-hover">
                                                                 <a href="{{url('noticias/'.base64_encode($n->codigo))}}">
-                                                                    <img src="<?= asset($n->image); ?>" alt="">
+                                                                    <img src="<?= url('upload/'.$n->image); ?>" alt="" style="max-height: 300px;">
                                                                 </a>
                                                             </div>
                                                             <div class="gdlr-core-blog-date-wrapper gdlr-core-skin-divider">

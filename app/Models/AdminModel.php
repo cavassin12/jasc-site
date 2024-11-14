@@ -117,7 +117,8 @@ class AdminModel extends Model {
         try {
             $file = $request->file('file');
 
-            $path = Storage::disk('galerias')->putFile('/' . $codigo, $file);
+            $path = Storage::disk('galerias')->putFile('/' . $codigo, $file, 'public');
+            chmod('/home/admin/web/jasc.vandecavassin.com.br/public_html/upload/galeria/'.$codigo, 0755);
             
             $exp = explode("/", $path);
             
