@@ -334,7 +334,7 @@
                                                                 <div class="gdlr-core-product-grid-3 gdlr-core-item-mgb  gdlr-core-button-style-border gdlr-core-move-up-with-shadow gdlr-core-outer-frame-element">
                                                                     <div class="gdlr-core-product-thumbnail gdlr-core-media-image  gdlr-core-zoom-on-hover">
                                                                         <a href="#">
-                                                                            <img src="{{url('upload/galeria/'.$g->codigo.'/'.$g->capa)}}" alt="" width="600" height="647" title=""></a>
+                                                                            <img src="{{url('upload/galeria/'.$g->capa)}}" alt="" width="600" height="647" title=""></a>
                                                                     </div>
                                                                     <div class="gdlr-core-product-grid-content gdlr-core-skin-e-background">
                                                                         <div class="gdlr-core-product-grid-info clearfix">
@@ -370,7 +370,7 @@
             <footer>
                 <div class="bigslam-footer-wrapper">
                     <div class="bigslam-footer-container bigslam-container clearfix">
-                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">&nbsp;</div>
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">&nbsp;</div>
                         <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
                             <div id="text-11" class="widget widget_text bigslam-widget">
                                 <img src="{{url('/upload/LogoSC.png');}}" width="200" height="60">
@@ -384,13 +384,32 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
+                                <div class="menu-main-navigation-container">
+                                    <img src="{{url('/upload/Logo Fesporte.png');}}" width="200" height="85">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
+                                <div class="menu-main-navigation-container">
+                                    <img src="{{url('/upload/Mascote Jasc.png');}}" width="72" height="162">
+
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
                 <div class="bigslam-copyright-wrapper">
                     <div class="bigslam-copyright-container bigslam-container">
                         <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>
-                        <div class="bigslam-copyright-text bigslam-item-pdlr" style="font-size: 12px">* Este site ainda está passando por melhorias</div>
+                        <div class="bigslam-copyright-text bigslam-item-pdlr" style="font-size: 12px">
+                            <a href="{{url('auth/login')}}">Acesso Restrito</a>
+                        </div>
 
                     </div>
                 </div>

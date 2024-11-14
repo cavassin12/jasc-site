@@ -48,4 +48,14 @@ Route::controller(PainelController::class)->group(function () {
     Route::get('/painel/jogos/destaque/{chave}', 'destacarjogo');
     Route::get('/painel/jogos/desativar/{chave}', 'desativarjogo');
     Route::put('/painel/jogos/novosalvar', 'salvarjogo');
+    
+    Route::get('/painel/galeria', 'galerias');
+    Route::get('/painel/galeria/nova', 'galeriasnova');
+    Route::put('/painel/galeria/novosalvar', 'galeriassalvar');
+    Route::get('/painel/galeria/desativar/{chave}', 'galeriadesativar');
+    Route::get('/painel/galeria/imagens/{chave}', 'imagensgaleria');
+    Route::get('/painel/galeria/imagens/desativar/{chave}', 'desativargaleria');
+    Route::put('/painel/galeria/imagens/add', 'salvarimagemgaleria');
+    
+    
 });

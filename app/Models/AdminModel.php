@@ -26,6 +26,10 @@ class AdminModel extends Model {
         $sql = "select * from public.noticias order by codigo desc";
         return DB::select($sql);
     }
+    public function getAllGalerias() {
+        $sql = "select * from public.galerias order by codigo desc";
+        return DB::select($sql);
+    }
 
     public function salvarnoticia(Request $request): RedirectResponse {
         $codigo = intval(base64_decode($request->codigo));
@@ -58,6 +62,20 @@ class AdminModel extends Model {
         try {
             DB::insert($sql, [$modalidade, $data, $hora, $local, $cidadea, $cidadeb, $link, 1]);
             return redirect()->to("/painel/jogos?ok")->with("sucesso", "Noticia Cadastrada");
+        } catch (\Throwable $ex) {
+            var_dump($ex->getMessage());
+            return redirect()->back()->with("falha", "Um erro aconteceu: " . $ex->getMessage());
+        }
+    }
+    public function galeriassalvar(Request $request): RedirectResponse {
+        
+        $data = $request->data;
+        $descricao = $request->descricao;
+        
+        $sql = "insert into public.galerias(data, descricao, status)values(?, ?, ?)";
+        try {
+            DB::insert($sql, [$data, $descricao, 1]);
+            return redirect()->to("/painel/galeria?ok")->with("sucesso", "Galeria Cadastrada");
         } catch (\Throwable $ex) {
             var_dump($ex->getMessage());
             return redirect()->back()->with("falha", "Um erro aconteceu: " . $ex->getMessage());
@@ -117,7 +135,7 @@ class AdminModel extends Model {
         try {
             $file = $request->file('file');
 
-            $path = Storage::disk('galerias')->putFile('/' . $codigo, $file, 'public');
+            $path = Storage::disk('galerias')->putFile('/' . $codigo, $file);
             chmod('/home/admin/web/jasc.vandecavassin.com.br/public_html/upload/galeria/'.$codigo, 0755);
             
             $exp = explode("/", $path);
@@ -125,6 +143,25 @@ class AdminModel extends Model {
             DB::insert("insert into public.noticias_images(noticia_codigo, imagem, status)values(?, ?, ?)", [$codigo, $exp[1], '1']);
             return redirect()->to("/painel/noticias?ok")->with("sucesso", "Imagem Alterada");
         } catch (\Throwable $exc) {
+            return redirect()->back()->with("falha", "Um erro aconteceu: " . $ex->getMessage());
+        }
+    }
+    
+    public function salvarimagemgaleria(Request $request): RedirectResponse {
+        $codigo = intval(base64_decode($request->galeria_codigo));
+
+        try {
+            $file = $request->file('file');
+
+            $path = Storage::disk('galerias')->putFile('/' . $codigo, $file);
+            chmod('/home/admin/web/jasc.vandecavassin.com.br/public_html/upload/galeria/'.$codigo, 0755);
+            
+            $exp = explode("/", $path);
+            
+            DB::insert("insert into public.galerias_imagens(galeria, link_img)values(?, ?)", [$codigo, $exp[1]]);
+            return redirect()->to("/painel/galeria?ok")->with("sucesso", "Imagem Alterada");
+        } catch (\Throwable $exc) {
+//            var_dump($exc);
             return redirect()->back()->with("falha", "Um erro aconteceu: " . $ex->getMessage());
         }
     }

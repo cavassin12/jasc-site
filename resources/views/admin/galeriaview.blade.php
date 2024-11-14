@@ -3,10 +3,10 @@
 <br>
 <div class="row">
     <div class="col-md-10">
-       <h2>Notícias</h2>
+       <h2>Galerias</h2>
     </div>
     <div class="col-md-2">
-        <a href="{{url('/painel/noticias/nova')}}" class="btn btn-info">Novo</a>
+        <a href="{{url('/painel/galeria/nova')}}" class="btn btn-info">Nova</a>
     </div>
 </div>
 <hr>
@@ -25,18 +25,18 @@
             <tbody>
                 @foreach($itens as $i)
                     <tr>
-                        <td>{{$i->titulo}}</td>
+                        <td>{{$i->descricao}}</td>
                         <td>{{$i->status=='1'?'Ativo':'Inativo'}}</td>
-                        <td>{{App\Models\Sistema::toDataHoraBR($i->dt_record)}}</td>
+                        <td>{{App\Models\Sistema::toDataBR($i->data)}}</td>
                         <td>
-<!--                            <a href="{{url('/painel/noticias/editar/'.base64_encode($i->codigo)."")}}"><i class="fa fa-pencil"></i> Editar</a>
+<!--                            <a href="{{url('/painel/galeria/editar/'.base64_encode($i->codigo)."")}}"><i class="fa fa-pencil"></i> Editar</a>
                             &nbsp;
                             &nbsp;-->
-                            <a href="{{url('/painel/noticias/imagens/'.base64_encode($i->codigo)."")}}"><i class="fa fa-pencil"></i> Imagens</a>
+                            <a href="{{url('/painel/galeria/imagens/'.base64_encode($i->codigo)."")}}"><i class="fa fa-pencil"></i> Imagens</a>
                             &nbsp;
                             &nbsp;
                             @if($i->status=='1')
-                            <a href="{{url('/painel/noticias/desativar/'.base64_encode($i->codigo)."")}}"><i class="fa fa-times"></i>Desativar</a>
+                            <a href="{{url('/painel/galeria/desativar/'.base64_encode($i->codigo)."")}}"><i class="fa fa-times"></i>Desativar</a>
                             @endif
                         </td>
                     </tr>

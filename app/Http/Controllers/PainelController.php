@@ -93,4 +93,38 @@ class PainelController extends Controller {
             return view('erro');
         }
     }
+    
+    public function galerias(): View {
+        if (session('logado') == 1) {
+            $this->sm = new AdminModel();
+            return view('admin/galeriaview', ["itens" => $this->sm->getAllGalerias()]);
+        } else {
+            return view('erro');
+        }
+    }
+    public function galeriasnova(): View {
+        if (session('logado') == 1) {
+            return view('admin/galeriacad');
+        } else {
+            return view('erro');
+        }
+    }
+    
+    public function galeriassalvar(Request $request): RedirectResponse { 
+        if (session('logado') == 1) {
+            return $this->sm->galeriassalvar($request);
+        } else {
+            return view('erro');
+        }
+    }
+    
+     public function imagensgaleria(String $chave): View {
+
+        return view('admin/galeriaimagens', ["chave" => $chave]);//salvarimagemgaleria
+    }
+    
+     public function salvarimagemgaleria(Request $request): RedirectResponse {
+        return $this->sm->salvarimagemgaleria($request);
+    }
+    
 }

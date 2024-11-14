@@ -177,31 +177,52 @@ $d = array();
 
 
                     <footer>
-                        <div class="bigslam-footer-wrapper">
-                        <div class="bigslam-footer-container bigslam-container clearfix">
-                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-20">&nbsp;</div>
-                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
-                                <div id="text-11" class="widget widget_text bigslam-widget">
-                                    <img src="{{url('/upload/LogoSC.png');}}" width="200" height="60">
-                                </div>
+                <div class="bigslam-footer-wrapper">
+                    <div class="bigslam-footer-container bigslam-container clearfix">
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">&nbsp;</div>
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                            <div id="text-11" class="widget widget_text bigslam-widget">
+                                <img src="{{url('/upload/LogoSC.png');}}" width="200" height="60">
                             </div>
-                            <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
-                                <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
-                                    <div class="menu-main-navigation-container">
-                                        <img src="{{url('/upload/logo.png');}}" width="70" height="58">
-
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
+                                <div class="menu-main-navigation-container">
+                                    <img src="{{url('/upload/logo.png');}}" width="70" height="58">
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
+                                <div class="menu-main-navigation-container">
+                                    <img src="{{url('/upload/Logo Fesporte.png');}}" width="200" height="85">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bigslam-footer-column bigslam-item-pdlr bigslam-column-10">
+                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget bigslam-widget">
+                                <div class="menu-main-navigation-container">
+                                    <img src="{{url('/upload/Mascote Jasc.png');}}" width="72" height="162">
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                        <div class="bigslam-copyright-wrapper">
-                            <div class="bigslam-copyright-container bigslam-container">
-                                <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>
-                            </div>
+                </div>
+                <div class="bigslam-copyright-wrapper">
+                    <div class="bigslam-copyright-container bigslam-container">
+                        <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>
+                        <div class="bigslam-copyright-text bigslam-item-pdlr" style="font-size: 12px">
+                            <a href="{{url('auth/login')}}">Acesso Restrito</a>
                         </div>
-                    </footer>
+
+                    </div>
+                </div>
+            </footer>
                 </div>
             </div><a href="#bigslam-top-anchor" class="bigslam-footer-back-to-top-button" id="bigslam-footer-back-to-top-button"><i class="fa fa-angle-up"></i></a>
 
