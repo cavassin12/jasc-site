@@ -146,9 +146,11 @@ $d = array();
                                                                 <div class="gdlr-core-blog-content clearfix">{{substr(strip_tags($n->texto), 0, 80)}}...
                                                                     <div class="clear">
                                                                     </div>
-                                                                    <a class="gdlr-core-excerpt-read-more gdlr-core-button gdlr-core-rectangle" href="{{url('noticias/'.base64_encode($n->codigo))}}">Veja Mais</a></div>
+                                                                    <!--<a class="gdlr-core-excerpt-read-more gdlr-core-button gdlr-core-rectangle" href="{{url('noticias/'.base64_encode($n->codigo))}}">Veja Mais</a>-->
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <br>
                                                         @endforeach
 
                                                     </div>
@@ -206,9 +208,9 @@ $d = array();
                         <div class="bigslam-copyright-wrapper">
                             <div class="bigslam-copyright-container bigslam-container">
                                 <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>
-                                <div class="bigslam-copyright-text bigslam-item-pdlr" style="font-size: 12px">
+<!--                                <div class="bigslam-copyright-text bigslam-item-pdlr" style="font-size: 12px">
                                     <a href="{{url('auth/login')}}">Acesso Restrito</a>
-                                </div>
+                                </div>-->
 
                             </div>
                         </div>

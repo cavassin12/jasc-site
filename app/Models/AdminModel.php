@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 class AdminModel extends Model {
 
     use HasFactory;
+//    private $localpublic = "jascconcordia.com.br";
+    private $localpublic = "jasc.vandecavassin.com.br";
 
     public function getAllModalidades() {
         $sql = "select * from public.modalidades order by descricao asc";
@@ -136,7 +138,7 @@ class AdminModel extends Model {
             $file = $request->file('file');
 
             $path = Storage::disk('galerias')->putFile('/' . $codigo, $file);
-            chmod('/home/admin/web/jasc.vandecavassin.com.br/public_html/upload/galeria/'.$codigo, 0755);
+            chmod('/home/admin/web/'.$this->localpublic.'/public_html/upload/galeria/'.$codigo, 0755);
             
             $exp = explode("/", $path);
             

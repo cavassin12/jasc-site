@@ -242,9 +242,9 @@ foreach ($noticia as $ntt) {
                 <div class="bigslam-copyright-wrapper">
                     <div class="bigslam-copyright-container bigslam-container">
                         <div class="bigslam-copyright-text bigslam-item-pdlr">JASC 2024 - Concórdia</div>
-                        <div class="bigslam-copyright-text bigslam-item-pdlr" style="font-size: 12px">
+<!--                        <div class="bigslam-copyright-text bigslam-item-pdlr" style="font-size: 12px">
                             <a href="{{url('auth/login')}}">Acesso Restrito</a>
-                        </div>
+                        </div>-->
 
                     </div>
                 </div>

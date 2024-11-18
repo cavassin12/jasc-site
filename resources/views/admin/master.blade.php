@@ -28,6 +28,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/painel/galeria')}}">Galeria</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/painel/ranking')}}">Classificações</a>
+                    </li>
                 </ul>
             </div>
         </div>
